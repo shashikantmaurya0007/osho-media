@@ -16,6 +16,8 @@ const userSignup = (userInformation, navigate) => {
       dispatch(loginActions.setError(null));
       dispatch(loginActions.setUserInformation(user));
       dispatch(loginActions.setEncodedToken(encodedToken));
+      localStorage.setItem("encodedToken", encodedToken);
+      localStorage.setItem("userInformation", JSON.stringify(user));
       dispatch(loginActions.setLoadingState(false));
       navigate("/");
     };
@@ -29,6 +31,8 @@ const userSignup = (userInformation, navigate) => {
       dispatch(loginActions.setEncodedToken(null));
       dispatch(loginActions.setUserInformation(null));
       dispatch(loginActions.setLoadingState(false));
+      localStorage.setItem("encodedToken", null);
+      localStorage.setItem("userInformation", null);
     }
   };
 };

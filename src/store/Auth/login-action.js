@@ -16,6 +16,7 @@ const userLogin = (userInformation, navigate) => {
       dispatch(loginActions.setEncodedToken(encodedToken));
       localStorage.setItem("encodedToken", encodedToken);
       localStorage.setItem("userInformation", JSON.stringify(foundUser));
+
       dispatch(loginActions.setLoadingState(false));
       debugger;
       toast.success("login Succesfull");
