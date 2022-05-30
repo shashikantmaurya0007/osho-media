@@ -13,7 +13,7 @@ const SignUp = () => {
     initialValues: {
       firstName: "",
       lastName: "",
-      userName: "",
+      username: "",
       email: "",
       password: "",
       confirmpassword: "",
@@ -24,7 +24,7 @@ const SignUp = () => {
         .max(15, "Must be 15 characters or less")
         .min(3, "Minimum 3 character")
         .required("Required"),
-      userName: Yup.string()
+      username: Yup.string()
         .trim()
         .max(15, "Must be 15 characters or less")
         .min(3, "Minimum 3 character")
@@ -55,7 +55,7 @@ const SignUp = () => {
       className="min-w-fit p-4 m-auto mt-5 dark:text-white shadow-md dark:bg-darkPrimary rounded-lg"
     >
       <h3 className="text-buttonBgColor mb-3">Sign-up</h3>
-      <div className="md:flex gap-3 ">
+      <div className=" gap-3 ">
         <div className="text-inherit flex-1 flex gap-1 flex-col text-left">
           <label htmlFor="firstName">FirstName</label>
           <input
@@ -94,20 +94,20 @@ const SignUp = () => {
         </div>
       </div>
       <div className=" flex flex-col gap-1 text-left">
-        <label htmlFor="userName">UserName</label>
+        <label htmlFor="username">UserName</label>
         <input
-          id="userName"
-          name="userName"
+          id="username"
+          name="username"
           type="text"
           onBlur={formik.handleBlur}
           onChange={formik.handleChange}
-          value={formik.values.userName}
+          value={formik.values.username}
           className=" border-1 rounded-md outline-none shadow-md dark:bg-darkHover"
           placeholder="Enter your userName"
         />
-        {formik.touched.userName && formik.errors.userName ? (
+        {formik.touched.username && formik.errors.username ? (
           <div className="text-red-600 dark:text-slate-300">
-            {formik.errors.userName}
+            {formik.errors.username}
           </div>
         ) : null}
       </div>

@@ -4,9 +4,10 @@ import { Auth } from "./Pages/Auth/Auth";
 import Header from "./layoutcomponent/Header";
 import { Login } from "./component/Auth/Login";
 import { SignUp } from "./component/Auth/SignUp";
+import { Portal } from "./PortalComponent/Portal";
 function App() {
   return (
-    <div className="App dark  dark:bg-darkBackground">
+    <div className="App  min-h-screen dark:bg-darkBackground">
       <Header />
       <Routes>
         <Route path="/auth" element={<Auth />}>
@@ -14,6 +15,7 @@ function App() {
           <Route path="signup" element={<SignUp />}></Route>
         </Route>
       </Routes>
+      <Portal />
     </div>
   );
 }

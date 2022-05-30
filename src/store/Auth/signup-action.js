@@ -25,7 +25,7 @@ const userSignup = (userInformation, navigate) => {
       await signUpTheUser();
     } catch (error) {
       dispatch(loginActions.setError("user already regiestered!"));
-      toast.error("email already registered!");
+      toast.error("user already registered!");
       dispatch(loginActions.setLoginStatus(false));
       dispatch(loginActions.setEncodedToken(null));
       dispatch(loginActions.setUserInformation(null));
