@@ -12,7 +12,7 @@ const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const loginTestUser = () => {
-    alert("hello");
+    ("hello");
     dispatch(
       userLogin({ username: "shashi1", password: "shashi1234" }, navigate)
     );
