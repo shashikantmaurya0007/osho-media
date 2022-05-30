@@ -12,7 +12,6 @@ const userSignup = (userInformation, navigate) => {
       } = await axios.post("/api/auth/signup", userInformation);
 
       toast.success("signup successfull!");
-      console.log(user);
       dispatch(loginActions.setLoginStatus(true));
       dispatch(loginActions.setError(null));
       dispatch(loginActions.setUserInformation(user));
