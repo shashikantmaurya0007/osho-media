@@ -11,6 +11,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/auth" element={<Auth />}>
+          <Route index element={<Login />}></Route>
           <Route path="login" element={<Login />}></Route>
           <Route path="signup" element={<SignUp />}></Route>
         </Route>

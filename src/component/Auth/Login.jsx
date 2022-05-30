@@ -43,7 +43,7 @@ const Login = () => {
       className="min-w-fit p-4 m-auto mt-5 dark:text-white shadow-md dark:bg-darkPrimary rounded-lg"
       onSubmit={formik.handleSubmit}
     >
-      <h3 className="text-buttonBgColor mb-3">LogIN</h3>
+      <h3 className="text-buttonBgColor mb-3">Log-in</h3>
 
       <div className=" flex flex-col gap-1 text-left">
         <label htmlFor="userName">UserName</label>

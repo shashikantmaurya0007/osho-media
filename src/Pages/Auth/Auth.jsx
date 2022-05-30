@@ -5,7 +5,7 @@ import { Navigate, NavLink, Outlet } from "react-router-dom";
 const Auth = () => {
   const isLogin = useSelector((state) => state.login.isLogin);
   if (isLogin) {
-    // return <Navigate to={"/"} />;
+    return <Navigate to={"/"} />;
   }
 
   return (
