@@ -39,6 +39,7 @@
   h4 {
     @apply text-xl tracking-[0.15px];
   }
+  
 }
 
 @layer utilities {
