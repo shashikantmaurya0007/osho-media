@@ -24,32 +24,3 @@
     @apply py-2 px-4;
   }
 }
-
-@layer utilities {
-  .grid-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-areas: "main";
-  }
-
-  @screen md {
-    .grid-container {
-      display: grid;
-      grid-template-columns: 15.625rem 1fr 15.625rem;
-      grid-template-areas: "left-aside main right-aside";
-      gap: 1rem;
-    }
-  }
-
-  .left-aside {
-    grid-area: left-aside;
-  }
-
-  .main {
-    grid-area: main;
-  }
-
-  .right-aside {
-    grid-area: right-aside;
-  }
-}

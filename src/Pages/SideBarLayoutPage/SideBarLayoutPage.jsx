@@ -5,9 +5,9 @@ import { NavigationMenu } from "../../layoutcomponent/NavigationMenu";
 
 const SideBarLayoutPage = () => {
   return (
-    <div className="grid-container">
+    <div className="flex gap-4 mt-6">
       <NavigationMenu />
-      <div className="main shadow-lg">
+      <div className="main flex-1 shadow-lg mx-4 min-h-screen">
         <Outlet />
       </div>
       <FollowersSuggestion />

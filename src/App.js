@@ -7,7 +7,7 @@ import { RequireAuth, Login, SignUp } from "./component/Auth";
 import { Portal } from "./PortalComponent/Portal";
 function App() {
   return (
-    <div className="App  min-h-screen dark:bg-darkBackground">
+    <div className="App bg-sky-50 min-h-screen dark:bg-darkBackground">
       <Header />
       <Routes>
         <Route path="/auth" element={<Auth />}>
