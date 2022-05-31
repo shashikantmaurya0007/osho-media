@@ -23,23 +23,6 @@
   input {
     @apply py-2 px-4;
   }
-
-  h1 {
-    @apply text-5xl;
-  }
-
-  h2 {
-    @apply text-4xl;
-  }
-
-  h3 {
-    @apply text-2xl tracking-normal;
-  }
-
-  h4 {
-    @apply text-xl tracking-[0.15px];
-  }
-  
 }
 
 @layer utilities {
@@ -49,10 +32,12 @@
     grid-template-areas: "main";
   }
 
-  @screen lg {
+  @screen md {
     .grid-container {
+      display: grid;
       grid-template-columns: 15.625rem 1fr 15.625rem;
       grid-template-areas: "left-aside main right-aside";
+      gap: 1rem;
     }
   }
 
@@ -64,25 +49,7 @@
     grid-area: main;
   }
 
-  .aside {
+  .right-aside {
     grid-area: right-aside;
-  }
-}
-
-@layer components {
-  .btn {
-    @apply text-sm text-inherit uppercase rounded py-2 px-4 tracking-[1.2px] hover:opacity-70;
-  }
-
-  .btn-primary {
-    @apply bg-blue-500 text-white;
-  }
-
-  .btn-secondary {
-    @apply bg-indigo-500 text-white;
-  }
-
-  .max-container {
-    @apply max-w-screen-2xl mx-auto;
   }
 }
