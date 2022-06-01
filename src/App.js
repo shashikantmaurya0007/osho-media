@@ -5,7 +5,9 @@ import Header from "./layoutcomponent/Header";
 import { RequireAuth, Login, SignUp } from "./component/Auth";
 
 import { Portal } from "./PortalComponent/Portal";
+import { useDocumentTitle } from "./GeneralCustomHook/useDocumentTitle";
 function App() {
+  useDocumentTitle();
   return (
     <div className="App bg-sky-50 min-h-screen dark:bg-darkBackground">
       <Header />

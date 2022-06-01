@@ -7,7 +7,7 @@ import { themeAction } from "../store/Theme/theme-slice";
 import { NavLink } from "react-router-dom";
 import { useManageTheme } from "../GeneralCustomHook/useManageTheme";
 import { followCursor } from "tippy.js";
-// import "tippy.js/dist/tippy.css";
+import { TipsyContent } from "./TipsyContent";
 import Tippy from "@tippyjs/react";
 const Header = () => {
   const dispatch = useDispatch();
@@ -34,7 +34,11 @@ const Header = () => {
         </div>
       </NavLink>
       <div className="flex justify-center items-center ">
-        <Tippy content="Tooltip" followCursor={true} plugins={[followCursor]}>
+        <Tippy
+          content={<TipsyContent hoverContent={"Theme"} />}
+          followCursor={true}
+          plugins={[followCursor]}
+        >
           <button
             onClick={() => manageTheme()}
             data-tooltip="change-theme"
@@ -43,13 +47,19 @@ const Header = () => {
             {themeSelected === "light" ? <NightsStayIcon /> : <WbSunnyIcon />}
           </button>
         </Tippy>
-        <div class=" flex -space-x-2 overflow-hidden">
-          <img
-            class="inline-block h-12 w-12 rounded-full ring-2 ring-white"
-            src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-            alt=""
-          />
-        </div>
+        <Tippy
+          content={<TipsyContent hoverContent={"Profile"} />}
+          followCursor={true}
+          plugins={[followCursor]}
+        >
+          <div class=" flex -space-x-2 overflow-hidden">
+            <img
+              class="inline-block h-12 w-12 rounded-full ring-2 ring-white"
+              src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+              alt=""
+            />
+          </div>
+        </Tippy>
       </div>
     </nav>
   );

@@ -1,5 +1,5 @@
 import React from "react";
-import { useDocumentTitle } from "../../GeneralCustomHook/useDocumentTitle";
+
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import { userLogin } from "../../store/Auth/login-action";
@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useDebounce } from "../../GeneralCustomHook/useDebounce";
 const Login = () => {
-  useDocumentTitle();
   const loading = useSelector((state) => state.login.loading);
   const navigate = useNavigate();
   const dispatch = useDispatch();
