@@ -6,7 +6,8 @@ const initialThemeAction = () => {
 
     if (theme === "dark") {
       dispatch(themeAction.setDarkTheme());
-    } else {
+    }
+    if (theme == "light") {
       dispatch(themeAction.setLightTheme());
     }
   };

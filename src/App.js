@@ -19,7 +19,8 @@ function App() {
         </Route>
         <Route element={<RequireAuth />}>
           <Route element={<SideBarLayoutPage />}>
-            <Route path="/" element={<FeedPage />}></Route>
+            <Route index element={<FeedPage />}></Route>
+            <Route path="/feed" element={<FeedPage />}></Route>
           </Route>
         </Route>
       </Routes>

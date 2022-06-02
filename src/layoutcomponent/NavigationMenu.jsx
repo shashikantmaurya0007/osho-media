@@ -9,7 +9,13 @@ import ManageAccountsTwoToneIcon from "@mui/icons-material/ManageAccountsTwoTone
 import { followCursor } from "tippy.js";
 import { TipsyContent } from "./TipsyContent";
 import Tippy from "@tippyjs/react";
+import { useDispatch } from "react-redux";
+import { addEditPostAction } from "../store/PostModal/postmodal-slice";
 const NavigationMenu = () => {
+  const dispatch = useDispatch();
+  const showAddorEditPostModal = () => {
+    dispatch(addEditPostAction.setAddEditPostModalOpen());
+  };
   return (
     <aside className="left-aside dark:text-white relative bg-white rounded-md shadow-lg w-64 ml-[8rem] p-3 sticky top-20 hidden md:block h-[32rem] dark:bg-darkSecondary  ">
       <ul className=" flex flex-col gap-2">
@@ -48,7 +54,7 @@ const NavigationMenu = () => {
             followCursor={true}
             plugins={[followCursor]}
           >
-            <button>
+            <button onClick={() => showAddorEditPostModal()}>
               <AddCircleTwoToneIcon sx={{ fontSize: "4rem" }} />
             </button>
           </Tippy>
