@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import { Auth, SideBarLayoutPage, FeedPage } from "./Pages";
 import Header from "./layoutcomponent/Header";
 import { RequireAuth, Login, SignUp } from "./component/Auth";
-
+import Mockman from "mockman-js";
 import { Portal } from "./PortalComponent/Portal";
 import { useDocumentTitle } from "./GeneralCustomHook/useDocumentTitle";
 function App() {
@@ -12,6 +12,7 @@ function App() {
     <div className="App bg-sky-50 min-h-screen dark:bg-darkBackground">
       <Header />
       <Routes>
+        <Route path="/mock" element={<Mockman />} />
         <Route path="/auth" element={<Auth />}>
           <Route index element={<Login />}></Route>
           <Route path="login" element={<Login />}></Route>
