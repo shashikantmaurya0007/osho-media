@@ -29,7 +29,7 @@ const AddEditPostModal = () => {
     dispatch(addEditPostAction.setAddEditPostModalClose());
   useOnClickOutside(ref, modalClose);
   const onEmojiClick = (event, emojiObject) => {
-    if (content.trim().length >= 150) return;
+    if (content.trim().length >= 200) return;
     setContent((prev) => prev + emojiObject.emoji);
   };
 
@@ -92,7 +92,7 @@ const AddEditPostModal = () => {
         <textarea
           rows={5}
           value={content}
-          maxLength={150}
+          maxLength={200}
           onChange={(e) => {
             addContent(e.target.value);
           }}
@@ -151,7 +151,7 @@ const AddEditPostModal = () => {
                 />
               </label>
             </Tippy>
-            <h5>{content.trim().length}/150</h5>
+            <h5>{content.trim().length}/200</h5>
           </div>
           <div className="flex gap-4">
             <button

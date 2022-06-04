@@ -11,10 +11,16 @@ import { TipsyContent } from "./TipsyContent";
 import Tippy from "@tippyjs/react";
 import { useDispatch } from "react-redux";
 import { addEditPostAction } from "../store/PostModal/postmodal-slice";
+import { loginActions } from "../store/Auth/loginSlice";
+import { toast } from "react-toastify";
 const NavigationMenu = () => {
   const dispatch = useDispatch();
   const showAddorEditPostModal = () => {
     dispatch(addEditPostAction.setAddEditPostModalOpen());
+  };
+  const logOutUser = () => {
+    dispatch(loginActions.logOutUser());
+    toast.success("!logout successfull");
   };
   return (
     <aside className="left-aside dark:text-white relative bg-white rounded-md shadow-lg w-64 ml-[8rem] p-3 sticky top-20 hidden md:block h-[32rem] dark:bg-darkSecondary  ">
@@ -60,7 +66,7 @@ const NavigationMenu = () => {
           </Tippy>
         </li>
 
-        <button>
+        <button onClick={() => logOutUser()}>
           <li className="flex  justify-center absolute bottom-2 w-[91%] py-1 hover:bg-red-400 rounded-md bg-red-500 font-semibold  text-white ">
             Logout
           </li>

@@ -1,7 +1,11 @@
 import React from "react";
-
+import { OnClickAddPostModal } from "../../component/Feed/OnClickAddPostModal";
 const FeedPage = () => {
-  return <main className="border-4 border-red-300">FeedPage</main>;
+  return (
+    <main className="">
+      <OnClickAddPostModal />
+    </main>
+  );
 };
 
 export { FeedPage };

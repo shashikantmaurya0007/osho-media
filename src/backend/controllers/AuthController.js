@@ -41,8 +41,8 @@ export const signupHandler = function (schema, request) {
       following: [],
       bookmarks: [],
       bio: "",
-      profileImage:
-        "https://res.cloudinary.com/dylkclyom/image/upload/v1652861304/default_profile_400x400_kl4nw3.png",
+      profileImage: null,
+
       website: "",
     };
     const createdUser = schema.users.create(newUser);
