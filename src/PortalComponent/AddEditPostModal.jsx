@@ -45,7 +45,6 @@ const AddEditPostModal = () => {
     setContent(value);
   };
   const handleImageSelectedForPost = async (e) => {
-    console.log(e.target);
     const fileSize = Math.floor(e.target.files[0].size / 1000000);
 
     if (fileSize > 3) {
@@ -80,7 +79,6 @@ const AddEditPostModal = () => {
     setPostImage(null);
   };
   const addUsersPost = async (e) => {
-    debugger;
     e.preventDefault();
     if (modalOpenInEditMode) {
       const updatetdPost = { ...postToEdit, content, postImage };
