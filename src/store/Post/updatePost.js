@@ -18,7 +18,7 @@ const updatePost = (postData, encodedToken) => {
           },
         }
       );
-      debugger;
+
       dispatch(postActions.setPostData(posts));
       toast.success("post updated successfully!");
     } catch (error) {
