@@ -23,7 +23,7 @@ const NavigationMenu = () => {
     toast.success("!logout successfull");
   };
   return (
-    <aside className="left-aside dark:text-white relative bg-white rounded-md shadow-lg w-64 ml-[8rem] p-3 sticky top-20 hidden md:block h-[32rem] dark:bg-darkSecondary  ">
+    <aside className="left-aside dark:text-white  bg-white rounded-md shadow-lg w-64 ml-[8rem] p-3 sticky top-20 hidden md:block h-[32rem] dark:bg-darkSecondary  ">
       <ul className=" flex flex-col gap-2">
         <NavLink to={"/feed"}>
           <li className="flex gap-3 pl-14 items-center shadow-gray-500 border-2  hover:bg-lightBackground/80 transition-all rounded-xl shadow-md  py-1">

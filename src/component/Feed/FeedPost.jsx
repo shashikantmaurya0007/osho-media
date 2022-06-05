@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { PostCard } from "../PostCard";
+import { PostCard } from "../PostCard/PostCard.jsx";
 
 const FeedPost = () => {
   const allPosts = useSelector((state) => state.post.allPost);

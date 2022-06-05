@@ -1,5 +1,4 @@
 import React from "react";
-import { useSelector } from "react-redux";
 
 const ProfilePic = ({ username, profileImage }) => {
   return (

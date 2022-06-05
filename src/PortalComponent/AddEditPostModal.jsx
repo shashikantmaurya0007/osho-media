@@ -13,6 +13,7 @@ import Tippy from "@tippyjs/react";
 import { toast } from "react-toastify";
 import { Loader } from "../GeneralComponent/Loader";
 import { addPost } from "../store/Post/addPost";
+import { updatePost } from "../store/Post/updatePost";
 
 const AddEditPostModal = () => {
   const [content, setContent] = useState("");
@@ -22,12 +23,19 @@ const AddEditPostModal = () => {
   const [postImage, setPostImage] = useState(null);
   const ref = useRef(null);
   const [showEmoticon, setShowEmoticon] = useState(false);
+  const { modalOpenInEditMode, editPostId } = useSelector(
+    (state) => state.addEditPost
+  );
+  const postToEdit = useSelector((state) => state.post.allPost).find(
+    (post) => post._id === editPostId
+  );
   const dispatch = useDispatch();
 
   const hideAndShowEmoticon = () => setShowEmoticon((prev) => !prev);
   const modalClose = () =>
     dispatch(addEditPostAction.setAddEditPostModalClose());
   useOnClickOutside(ref, modalClose);
+
   const onEmojiClick = (event, emojiObject) => {
     if (content.trim().length >= 200) return;
     setContent((prev) => prev + emojiObject.emoji);
@@ -72,13 +80,23 @@ const AddEditPostModal = () => {
     setPostImage(null);
   };
   const addUsersPost = async (e) => {
+    debugger;
     e.preventDefault();
-    dispatch(addPost({ content, postImage }, encodedToken));
+    if (modalOpenInEditMode) {
+      const updatetdPost = { ...postToEdit, content, postImage };
+      dispatch(updatePost(updatetdPost, encodedToken));
+    } else dispatch(addPost({ content, postImage }, encodedToken));
   };
   useEffect(() => {
     inputFocus.current.focus();
   }, []);
   // if (!modalOpen) return;
+  useEffect(() => {
+    if (modalOpenInEditMode) {
+      setContent(postToEdit.content);
+      setPostImage(postToEdit.postImage);
+    }
+  }, [modalOpenInEditMode, postToEdit]);
 
   return ReactDOM.createPortal(
     <main className="fixed top-0 left-0 right-0 bottom-0 backdrop-blur-[2px] flex justify-center  z-[11] ">
@@ -161,12 +179,22 @@ const AddEditPostModal = () => {
             >
               Cancel
             </button>
-            <button
-              disabled={!Boolean(content || postImage)}
-              className=" p-1 min-w-[60px] rounded-md bg-darkHover hover:bg-opacity-80 transition-all"
-            >
-              Add
-            </button>
+            {!modalOpenInEditMode && (
+              <button
+                disabled={!Boolean(content || postImage)}
+                className=" p-1 min-w-[60px] rounded-md bg-darkHover hover:bg-opacity-80 transition-all"
+              >
+                Add
+              </button>
+            )}
+            {modalOpenInEditMode && (
+              <button
+                disabled={!Boolean(content || postImage)}
+                className=" p-1 min-w-[60px] rounded-md bg-darkHover hover:bg-opacity-80 transition-all"
+              >
+                update
+              </button>
+            )}
           </div>
         </div>
         {showEmoticon && (

@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   modalOpen: false,
-  modalOpenInEditMode: "false",
+  modalOpenInEditMode: false,
   editPostId: null,
 };
 
@@ -15,9 +15,13 @@ const addEditPostSlice = createSlice({
     },
     setAddEditPostModalClose: (state, action) => {
       state.modalOpen = false;
+      state.modalOpenInEditMode = false;
+      state.editPostId = null;
     },
     setEditPostId: (state, action) => {
+      state.modalOpen = true;
       state.editPostId = action.payload;
+      state.modalOpenInEditMode = true;
     },
   },
 });
