@@ -13,7 +13,7 @@ const Header = () => {
   const dispatch = useDispatch();
   useManageTheme();
   const themeSelected = useSelector((state) => state.theme.themeselected);
-
+  console.log("hello");
   const manageTheme = () => {
     if (themeSelected === "light") {
       localStorage.setItem("theme", "dark");
