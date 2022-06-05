@@ -4,10 +4,11 @@ const initalLoginAction = () => {
   return async (dispatch) => {
     const encodedToken = localStorage.getItem("encodedToken");
     const userInformation = JSON.parse(localStorage.getItem("userInformation"));
-    if (encodedToken !== "null") {
-      dispatch(loginActions.setLoginStatus(true));
+    console.log(encodedToken !== null);
+    if (encodedToken !== null) {
       dispatch(loginActions.setEncodedToken(encodedToken));
       dispatch(loginActions.setUserInformation(userInformation));
+      dispatch(loginActions.setLoginStatus(true));
     }
   };
 };
