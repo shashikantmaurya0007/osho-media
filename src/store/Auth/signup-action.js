@@ -7,7 +7,6 @@ const userSignup = (userInformation, navigate) => {
     dispatch(loginActions.setLoadingState(true));
 
     const signUpTheUser = async () => {
-      debugger;
       const {
         data: { createdUser: user, encodedToken },
       } = await axios.post("/api/auth/signup", userInformation);
@@ -26,7 +25,6 @@ const userSignup = (userInformation, navigate) => {
     try {
       await signUpTheUser();
     } catch (error) {
-      debugger;
       dispatch(loginActions.setError("user already regiestered!"));
       toast.error("user already registered!");
       dispatch(loginActions.setLoginStatus(false));

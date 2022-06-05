@@ -5,7 +5,6 @@ import { postActions } from "./post-slice";
 
 const addPost = (postData, encodedToken) => {
   return async (dispatch) => {
-    console.log(postData.postImage);
     dispatch(postActions.setPostLoading(true));
 
     try {
@@ -25,7 +24,6 @@ const addPost = (postData, encodedToken) => {
     } catch (error) {
       toast.error("try adding post later!");
     } finally {
-      debugger;
       dispatch(postActions.setPostLoading(false));
       dispatch(addEditPostAction.setAddEditPostModalClose());
     }

@@ -7,7 +7,7 @@ const SideBarLayoutPage = () => {
   return (
     <div className="flex gap-4 mt-8">
       <NavigationMenu />
-      <div className="main flex-1 shadow-lg mx-4 min-h-screen">
+      <div className="main flex-1  mx-4 min-h-screen">
         <Outlet />
       </div>
       <FollowersSuggestion />

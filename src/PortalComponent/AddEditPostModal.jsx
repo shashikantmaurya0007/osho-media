@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom";
 import CancelTwoToneIcon from "@mui/icons-material/CancelTwoTone";
 import SentimentSatisfiedTwoToneIcon from "@mui/icons-material/SentimentSatisfiedTwoTone";
@@ -16,7 +16,7 @@ import { addPost } from "../store/Post/addPost";
 
 const AddEditPostModal = () => {
   const [content, setContent] = useState("");
-
+  const inputFocus = useRef(null);
   const [mediaLoading, setMediaLoading] = useState(false);
   const encodedToken = useSelector((state) => state.login.encodedToken);
   const [postImage, setPostImage] = useState(null);
@@ -62,7 +62,6 @@ const AddEditPostModal = () => {
       const { url } = await response.json();
       setPostImage(url);
     } catch (error) {
-      debugger;
       toast.error("try uploading image later!");
     } finally {
       setMediaLoading(false);
@@ -75,9 +74,10 @@ const AddEditPostModal = () => {
   const addUsersPost = async (e) => {
     e.preventDefault();
     dispatch(addPost({ content, postImage }, encodedToken));
-
-    alert(content + postImage);
   };
+  useEffect(() => {
+    inputFocus.current.focus();
+  }, []);
   // if (!modalOpen) return;
 
   return ReactDOM.createPortal(
@@ -91,6 +91,7 @@ const AddEditPostModal = () => {
       >
         <textarea
           rows={5}
+          ref={inputFocus}
           value={content}
           maxLength={200}
           onChange={(e) => {

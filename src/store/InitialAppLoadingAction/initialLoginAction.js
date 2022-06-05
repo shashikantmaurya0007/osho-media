@@ -5,7 +5,6 @@ const initalLoginAction = () => {
     const encodedToken = localStorage.getItem("encodedToken");
     const userInformation = JSON.parse(localStorage.getItem("userInformation"));
     if (encodedToken !== "null") {
-      debugger;
       dispatch(loginActions.setLoginStatus(true));
       dispatch(loginActions.setEncodedToken(encodedToken));
       dispatch(loginActions.setUserInformation(userInformation));
