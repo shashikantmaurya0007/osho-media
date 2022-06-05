@@ -51,7 +51,6 @@ const AddEditPostModal = () => {
       toast.info(`!your file size should be less than 3mb `);
       return;
     }
-
     try {
       setMediaLoading(true);
       const postData = new FormData();
