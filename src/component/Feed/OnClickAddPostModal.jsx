@@ -11,7 +11,7 @@ const OnClickAddPostModal = () => {
   const showAddorEditPostModal = () => {
     dispatch(addEditPostAction.setAddEditPostModalOpen());
   };
-  console.log(username, profileImage);
+
   return (
     <section
       onClick={() => showAddorEditPostModal()}
