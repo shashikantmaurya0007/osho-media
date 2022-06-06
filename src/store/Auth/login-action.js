@@ -26,7 +26,7 @@ const userLogin = (userInformation, navigate) => {
       dispatch(loginActions.setLoadingState(false));
       dispatch(loginActions.setLoginStatus(false));
       dispatch(loginActions.setUserInformation(null));
-      localStorage.setItem("encodedToken", null);
+      localStorage.removeItem("encodedToken");
       localStorage.setItem("userInformation", null);
       toast.error("Invalid credential!");
     }

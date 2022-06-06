@@ -31,7 +31,7 @@ const userSignup = (userInformation, navigate) => {
       dispatch(loginActions.setEncodedToken(null));
       dispatch(loginActions.setUserInformation(null));
       dispatch(loginActions.setLoadingState(false));
-      localStorage.setItem("encodedToken", null);
+      localStorage.removeItemItem("encodedToken");
       localStorage.setItem("userInformation", null);
     }
   };
