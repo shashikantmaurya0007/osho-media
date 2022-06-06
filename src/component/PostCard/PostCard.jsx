@@ -30,7 +30,10 @@ const PostCard = ({ postdata }) => {
     comments,
   } = postdata;
   const dispatch = useDispatch();
-  const encodedToken = useSelector((state) => state.login.encodedToken);
+  const {
+    encodedToken,
+    userInformation: { username: username_ },
+  } = useSelector((state) => state.login);
   const bookMarkPosts = useSelector((state) => state.bookmark.bookMarkPosts);
   const editDeleteRef = useRef(null);
 
@@ -59,31 +62,33 @@ const PostCard = ({ postdata }) => {
             </p>
           </div>
         </div>
-        <div ref={editDeleteRef}>
-          <Tippy
-            content={<TipsyContent hoverContent={"edit|delete"} />}
-            followCursor={true}
-            plugins={[followCursor]}
-          >
-            <button
-              onClick={() => toggleEditDeleteButton()}
-              className="hover:bg-darkHover/100 w-[2rem] h-[2rem] rounded-full transition-all"
+        {username === username_ && (
+          <div ref={editDeleteRef}>
+            <Tippy
+              content={<TipsyContent hoverContent={"edit|delete"} />}
+              followCursor={true}
+              plugins={[followCursor]}
             >
-              <MoreVertTwoToneIcon />
-            </button>
-          </Tippy>
-          {showEditDeleteButton && (
-            <EditDeletePostMenu
-              postdata={postdata}
-              closeToggleEditDeleteButton={closeToggleEditDeleteButton}
-            />
-          )}
-        </div>
+              <button
+                onClick={() => toggleEditDeleteButton()}
+                className="hover:bg-darkHover/100 w-[2rem] h-[2rem] rounded-full transition-all"
+              >
+                <MoreVertTwoToneIcon />
+              </button>
+            </Tippy>
+            {showEditDeleteButton && (
+              <EditDeletePostMenu
+                postdata={postdata}
+                closeToggleEditDeleteButton={closeToggleEditDeleteButton}
+              />
+            )}
+          </div>
+        )}
       </div>
       {postImage && (
         <img src={postImage} alt="" className="h-96 w-full object-contain" />
       )}
-      {content && <p className="text-base py-2 px-3">{content}</p>}
+      {content && <p className="text-base text-justify py-2 px-5">{content}</p>}
       <div className="flex justify-between py-4 px-3   ">
         <div className="flex gap-4">
           <Tippy
@@ -92,7 +97,7 @@ const PostCard = ({ postdata }) => {
             plugins={[followCursor]}
           >
             <button>
-              <FavoriteTwoToneIcon />
+              <FavoriteTwoToneIcon /> {likeCount}
             </button>
           </Tippy>
           <Tippy
