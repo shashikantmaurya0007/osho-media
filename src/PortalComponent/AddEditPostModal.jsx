@@ -94,7 +94,7 @@ const AddEditPostModal = () => {
       document.body.style.overflow = "unset";
     };
   }, []);
-  // if (!modalOpen) return;
+
   useEffect(() => {
     if (modalOpenInEditMode) {
       setContent(postToEdit.content);
