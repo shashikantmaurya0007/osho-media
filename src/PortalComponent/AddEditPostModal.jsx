@@ -102,7 +102,7 @@ const AddEditPostModal = () => {
         onSubmit={(e) => {
           addUsersPost(e);
         }}
-        className="relative flex flex-col top-20 shadow-lg bg-white blur-0   h-max  w-96 mx-auto dark:bg-darkPrimary rounded-lg dark:text-white"
+        className="relative flex flex-col top-20 shadow-lg bg-white blur-0   h-max w-[22rem] md:w-96 mx-auto dark:bg-darkPrimary rounded-lg dark:text-white"
       >
         <textarea
           rows={5}
@@ -113,7 +113,7 @@ const AddEditPostModal = () => {
             addContent(e.target.value);
           }}
           placeholder="whats your thought for today?"
-          className=" m-4 mb-2 w-[22rem] resize-none cursor-text p-[5px] rounded-md outline-none border-0 dark:bg-darkSecondary"
+          className=" m-4 mb-2 w-[20rem] md:w-[22rem] resize-none cursor-text p-[5px] rounded-md outline-none border-0 dark:bg-darkSecondary"
         ></textarea>
         <div className="mx-auto mb-1">
           {mediaLoading && <Loader />}{" "}

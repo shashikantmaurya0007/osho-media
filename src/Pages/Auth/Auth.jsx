@@ -9,7 +9,7 @@ const Auth = () => {
   }
 
   return (
-    <div className="flex-col justify-center items-center  w-96 m-auto  ">
+    <div className="flex-col justify-center items-center  w-[22rem] m-auto  ">
       <div className="flex justify-around w-full rounded-xl mt-8 p-4 mx-auto bg-lightSecondary dark:bg-darkSecondary">
         <NavLink to="login ">
           <button className="w-28  mr-4 py-1 dark:text-white rounded-md bg-lightPrimary hover:shadow-lg hover:bg-opacity-75">

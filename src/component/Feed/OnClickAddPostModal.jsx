@@ -23,7 +23,7 @@ const OnClickAddPostModal = () => {
           rows={1}
           maxLength={10}
           placeholder="whats your thought for today?"
-          className="h-[2.3rem] flex-1  mb-2 shadow-md cursor-pointer resize-none p-[5px] rounded-md outline-none border-0 dark:bg-darkSecondary"
+          className="h-[4rem] md:h-[2.3rem] flex-1  mb-2 shadow-md cursor-pointer resize-none p-[5px] rounded-md outline-none border-0 dark:bg-darkSecondary"
         ></textarea>
       </div>
     </section>
