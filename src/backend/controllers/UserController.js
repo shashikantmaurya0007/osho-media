@@ -107,8 +107,11 @@ export const getBookmarkPostsHandler = function (schema, request) {
 
 export const bookmarkPostHandler = function (schema, request) {
   const { postId } = request.params;
+
   const post = schema.posts.findBy({ _id: postId }).attrs;
+
   const user = requiresAuth.call(this, request);
+
   try {
     if (!user) {
       return new Response(

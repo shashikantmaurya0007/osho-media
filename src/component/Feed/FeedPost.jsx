@@ -4,6 +4,7 @@ import { PostCard } from "../PostCard/PostCard.jsx";
 
 const FeedPost = () => {
   const allPosts = useSelector((state) => state.post.allPost);
+
   return (
     <div className="flex flex-col gap-6 my-6">
       {allPosts.map((ele) => (

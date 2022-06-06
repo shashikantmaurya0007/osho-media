@@ -6,12 +6,19 @@ import FavoriteTwoToneIcon from "@mui/icons-material/FavoriteTwoTone";
 import ChatBubbleTwoToneIcon from "@mui/icons-material/ChatBubbleTwoTone";
 import ShareTwoToneIcon from "@mui/icons-material/ShareTwoTone";
 import BookmarkTwoToneIcon from "@mui/icons-material/BookmarkTwoTone";
+import BookmarkRemoveIcon from "@mui/icons-material/BookmarkRemove";
 import MoreVertTwoToneIcon from "@mui/icons-material/MoreVertTwoTone";
 import { followCursor } from "tippy.js";
 import { TipsyContent } from "../../layoutcomponent/TipsyContent";
 import Tippy from "@tippyjs/react";
 import EditDeletePostMenu from "./EditDeletePostMenu";
-
+import {
+  addToBookmarks,
+  alreadyAddedInBookMark,
+  removeFromBookmarks,
+} from "./postCardUtil";
+import { useDispatch, useSelector } from "react-redux";
+import { useDebounce } from "../../GeneralCustomHook/useDebounce";
 const PostCard = ({ postdata }) => {
   const {
     content,
@@ -22,6 +29,9 @@ const PostCard = ({ postdata }) => {
     createdAt,
     comments,
   } = postdata;
+  const dispatch = useDispatch();
+  const encodedToken = useSelector((state) => state.login.encodedToken);
+  const bookMarkPosts = useSelector((state) => state.bookmark.bookMarkPosts);
   const editDeleteRef = useRef(null);
 
   const [showEditDeleteButton, setShowEditDeleteButton] = useState(false);
@@ -32,6 +42,11 @@ const PostCard = ({ postdata }) => {
     setShowEditDeleteButton(false);
   };
   useOnClickOutside(editDeleteRef, closeToggleEditDeleteButton);
+
+  const addToBookMarkDebounce = useDebounce(addToBookmarks, 300);
+  const removeFromBookmarksDebounce = useDebounce(removeFromBookmarks, 300);
+  const isBookMarked = alreadyAddedInBookMark(postdata, bookMarkPosts);
+
   return (
     <div className="shadow-inner dark:text-white bg-white dark:bg-darkPrimary rounded-md">
       <div className="flex justify-between items-center px-3 relative">
@@ -104,9 +119,23 @@ const PostCard = ({ postdata }) => {
           followCursor={true}
           plugins={[followCursor]}
         >
-          <button>
-            <BookmarkTwoToneIcon />
-          </button>
+          {isBookMarked ? (
+            <button
+              onClick={() =>
+                removeFromBookmarksDebounce(postdata, dispatch, encodedToken)
+              }
+            >
+              <BookmarkRemoveIcon />
+            </button>
+          ) : (
+            <button
+              onClick={() =>
+                addToBookMarkDebounce(postdata, dispatch, encodedToken)
+              }
+            >
+              <BookmarkTwoToneIcon />
+            </button>
+          )}
         </Tippy>
       </div>
     </div>
