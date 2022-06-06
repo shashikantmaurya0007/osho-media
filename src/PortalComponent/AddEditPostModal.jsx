@@ -14,6 +14,7 @@ import { toast } from "react-toastify";
 import { Loader } from "../GeneralComponent/Loader";
 import { addPost } from "../store/Post/addPost";
 import { updatePost } from "../store/Post/updatePost";
+import { useDebounce } from "../GeneralCustomHook/useDebounce";
 
 const AddEditPostModal = () => {
   const [content, setContent] = useState("");
@@ -77,15 +78,21 @@ const AddEditPostModal = () => {
   const removeImage = () => {
     setPostImage(null);
   };
-  const addUsersPost = async (e) => {
+  const addUsersPost = (e) => {
     e.preventDefault();
     if (modalOpenInEditMode) {
       const updatetdPost = { ...postToEdit, content, postImage };
       dispatch(updatePost(updatetdPost, encodedToken));
     } else dispatch(addPost({ content, postImage }, encodedToken));
   };
+
+  const addUserPostDebounce = useDebounce(addUsersPost, 300);
   useEffect(() => {
     inputFocus.current.focus();
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "unset";
+    };
   }, []);
   // if (!modalOpen) return;
   useEffect(() => {
@@ -100,7 +107,8 @@ const AddEditPostModal = () => {
       <form
         ref={ref}
         onSubmit={(e) => {
-          addUsersPost(e);
+          e.preventDefault();
+          addUserPostDebounce(e);
         }}
         className="relative flex flex-col top-20 shadow-lg bg-white blur-0   h-max w-[22rem] md:w-96 mx-auto dark:bg-darkPrimary rounded-lg dark:text-white"
       >
@@ -172,6 +180,7 @@ const AddEditPostModal = () => {
           <div className="flex gap-4">
             <button
               type="button"
+              onClick={() => modalClose()}
               className="border-2 min-w-[60px] p-1 rounded-md hover:text-white hover:bg-darkHover  border-darkHover"
             >
               Cancel
