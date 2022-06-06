@@ -10,13 +10,14 @@ const userLogin = (userInformation, navigate) => {
       } = await axios.post("/api/auth/login", userInformation);
 
       dispatch(loginActions.setError(null));
-      dispatch(loginActions.setLoginStatus(true));
+
       dispatch(loginActions.setUserInformation(foundUser));
       dispatch(loginActions.setEncodedToken(encodedToken));
       localStorage.setItem("encodedToken", encodedToken);
       localStorage.setItem("userInformation", JSON.stringify(foundUser));
 
       dispatch(loginActions.setLoadingState(false));
+      dispatch(loginActions.setLoginStatus(true));
       toast.success("login Succesfull");
       navigate("/");
     } catch (error) {
@@ -25,7 +26,7 @@ const userLogin = (userInformation, navigate) => {
       dispatch(loginActions.setLoadingState(false));
       dispatch(loginActions.setLoginStatus(false));
       dispatch(loginActions.setUserInformation(null));
-      localStorage.setItem("encodedToken", null);
+      localStorage.removeItem("encodedToken");
       localStorage.setItem("userInformation", null);
       toast.error("Invalid credential!");
     }

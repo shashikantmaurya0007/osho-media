@@ -1,14 +1,14 @@
 import React from "react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
-import { useDocumentTitle } from "../../GeneralCustomHook/useDocumentTitle";
+
 import { userSignup } from "../../store/Auth/signup-action";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 const SignUp = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  useDocumentTitle();
+
   const formik = useFormik({
     initialValues: {
       firstName: "",

@@ -28,6 +28,8 @@ const loginSlice = createSlice({
       state.isLogin = action.payload;
     },
     logOutUser: (state, action) => {
+      localStorage.removeItem("encodedToken");
+      localStorage.setItem("userInformation", null);
       return initialState;
     },
   },

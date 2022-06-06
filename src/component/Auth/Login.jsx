@@ -1,5 +1,5 @@
 import React from "react";
-import { useDocumentTitle } from "../../GeneralCustomHook/useDocumentTitle";
+
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import { userLogin } from "../../store/Auth/login-action";
@@ -7,12 +7,10 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useDebounce } from "../../GeneralCustomHook/useDebounce";
 const Login = () => {
-  useDocumentTitle();
   const loading = useSelector((state) => state.login.loading);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const loginTestUser = () => {
-    ("hello");
     dispatch(
       userLogin({ username: "shashi1", password: "shashi1234" }, navigate)
     );
@@ -43,7 +41,7 @@ const Login = () => {
       className="min-w-fit p-4 m-auto mt-5 dark:text-white shadow-md dark:bg-darkPrimary rounded-lg"
       onSubmit={formik.handleSubmit}
     >
-      <h3 className="text-buttonBgColor mb-3">Log-in</h3>
+      <h3 className="text-buttonBgColor text-center font-bold  mb-3">Log-in</h3>
 
       <div className=" flex flex-col gap-1 text-left">
         <label htmlFor="userName">UserName</label>

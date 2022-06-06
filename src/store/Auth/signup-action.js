@@ -12,13 +12,13 @@ const userSignup = (userInformation, navigate) => {
       } = await axios.post("/api/auth/signup", userInformation);
 
       toast.success("signup successfull!");
-      dispatch(loginActions.setLoginStatus(true));
       dispatch(loginActions.setError(null));
       dispatch(loginActions.setUserInformation(user));
       dispatch(loginActions.setEncodedToken(encodedToken));
       localStorage.setItem("encodedToken", encodedToken);
       localStorage.setItem("userInformation", JSON.stringify(user));
       dispatch(loginActions.setLoadingState(false));
+      dispatch(loginActions.setLoginStatus(true));
       navigate("/");
     };
 
@@ -31,7 +31,7 @@ const userSignup = (userInformation, navigate) => {
       dispatch(loginActions.setEncodedToken(null));
       dispatch(loginActions.setUserInformation(null));
       dispatch(loginActions.setLoadingState(false));
-      localStorage.setItem("encodedToken", null);
+      localStorage.removeItemItem("encodedToken");
       localStorage.setItem("userInformation", null);
     }
   };
