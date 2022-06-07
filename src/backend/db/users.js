@@ -241,7 +241,7 @@ export const users = [
     updatedAt: formatDate(),
     bio: `Building the future at Ola!
     `,
-    profileImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654090778/suumit_shah_mn2nhk.jpg`,
+    profileImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654091110/bhavish_aggarwal_pc948b.jpg`,
     backgroundImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654100040/bhavish_aggarwal_background_vo5fmw.jpg`,
     website: `https://t.co/2fukVxoHsx`,
     followers: [
