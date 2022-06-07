@@ -8,7 +8,7 @@ const useDocumentTitle = () => {
 
   useEffect(() => {
     window.document.title = `oshoshare|${title_}`;
-  }, [title_]);
+  },   [title_]);
 };
 
 export { useDocumentTitle };

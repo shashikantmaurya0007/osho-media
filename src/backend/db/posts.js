@@ -235,4 +235,134 @@ export const posts = [
     updatedAt: formatDate(),
     comments: [],
   },
+  {
+    _id: uuid(),
+    content:
+      "Be the person you are. Never try to be another, and you will become mature.  - Osho",
+    postImage: null,
+    likes: {
+      likeCount: 3,
+      likedBy: [
+        {
+          firstName: "Tanay",
+          lastName: "Pratap",
+          username: "tanaypratap",
+          profileImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654073431/tanay_profile_pic_luvain.jpg`,
+        },
+        {
+          firstName: `Kunal`,
+          lastName: `Shah`,
+          username: `kunalb11`,
+          profileImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654090092/kunal_shah_nvoz1m.jpg`,
+        },
+        {
+          firstName: `Suumit`,
+          lastName: `Shah`,
+          username: `suumitshah`,
+          profileImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654090778/suumit_shah_mn2nhk.jpg`,
+        },
+      ],
+      dislikedBy: [],
+    },
+    username: "shashi1",
+    profileImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654086752/shashi_maurya_xrox2a.jpg`,
+    createdAt: new Date("February 10 2021 11:06:56"),
+    updatedAt: formatDate(),
+    comments: [
+      {
+        _id: uuid(),
+        username: `bhash`,
+        profileImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654091110/bhavish_aggarwal_pc948b.jpg`,
+        text: "thanks for sharing this",
+        createdAt: new Date("February 12 2021 10:18:35"),
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
+  },
+  // tanays post
+  {
+    _id: uuid(),
+    content:
+      "I seriously want to stop tweeting about how awesome Bangalore is but",
+    postImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654549239/tanay_s_first_post_bzcwhe.jpg`,
+    likes: {
+      likeCount: 2,
+      likedBy: [
+        {
+          firstName: `shashi`,
+          lastName: `Maurya`,
+          username: "shashi1",
+          profileImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654086752/shashi_maurya_xrox2a.jpg`,
+        },
+        {
+          firstName: `Bhavish`,
+          lastName: ` Aggarwal`,
+          username: `bhash`,
+          profileImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654091110/bhavish_aggarwal_pc948b.jpg`,
+        },
+      ],
+      dislikedBy: [],
+    },
+    username: "tanaypratap",
+    profileImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654073431/tanay_profile_pic_luvain.jpg`,
+    createdAt: new Date("June 4 2022 11:06:56"),
+    updatedAt: formatDate(),
+    comments: [
+      {
+        _id: uuid(),
+        username: `bhash`,
+        profileImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654091110/bhavish_aggarwal_pc948b.jpg`,
+        text: "hahah",
+        createdAt: new Date("February 12 2022 10:18:35"),
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
+  },
+  {
+    _id: uuid(),
+    content:
+      "My favorite season is here. Yes, you guessed it right—the placement season.",
+    postImage: null,
+    likes: {
+      likeCount: 2,
+      likedBy: [
+        {
+          firstName: `shashi`,
+          lastName: `Maurya`,
+          username: "shashi1",
+          profileImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654086752/shashi_maurya_xrox2a.jpg`,
+        },
+        {
+          firstName: `Bhavish`,
+          lastName: ` Aggarwal`,
+          username: `bhash`,
+          profileImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654091110/bhavish_aggarwal_pc948b.jpg`,
+        },
+      ],
+      dislikedBy: [],
+    },
+    username: "tanaypratap",
+    profileImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654073431/tanay_profile_pic_luvain.jpg`,
+    createdAt: new Date("June 4 2022 11:06:56"),
+    updatedAt: formatDate(),
+    comments: [
+      {
+        _id: uuid(),
+        username: `bhash`,
+        profileImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654091110/bhavish_aggarwal_pc948b.jpg`,
+        text: "hahah",
+        createdAt: new Date("February 12 2022 10:18:35"),
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
+  },
 ];
