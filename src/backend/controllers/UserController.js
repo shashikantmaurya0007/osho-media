@@ -11,6 +11,7 @@ import { formatDate, requiresAuth } from "../utils/authUtils";
  * */
 
 export const getAllUsersHandler = function () {
+  debugger;
   return new Response(200, {}, { users: this.db.users });
 };
 
