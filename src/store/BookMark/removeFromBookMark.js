@@ -4,7 +4,6 @@ import { bookmarkActions } from "./bookmark-slice";
 
 const removeFromBookmark_action = (postData, encodedToken) => {
   return async (dispatch) => {
-    debugger;
     try {
       const {
         data: { bookmarks },

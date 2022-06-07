@@ -8,7 +8,7 @@ const BookMarksPost = () => {
   const bookMarkedPosts = allPosts?.filter((postData) =>
     bookmarkedIds.includes(postData._id)
   );
-  console.log(bookMarkedPosts);
+
   return (
     <div className="flex flex-col gap-6 mb-6">
       {bookMarkedPosts?.map((ele) => (
