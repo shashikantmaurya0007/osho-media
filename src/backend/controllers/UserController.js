@@ -268,7 +268,8 @@ export const followUserHandler = function (schema, request) {
 
 export const unfollowUserHandler = function (schema, request) {
   const user = requiresAuth.call(this, request);
-  const { followUsername } = request.params;
+  const { followUserId: followUsername } = request.params;
+
   const followUser = this.db.users.findBy({ username: followUsername });
   try {
     if (!user) {

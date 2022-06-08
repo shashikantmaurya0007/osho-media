@@ -19,7 +19,7 @@ const SuggestionFollowCard = ({ user: { _id, profileImage, username } }) => {
       </div>
       <button
         onClick={() => followThisUser()}
-        className="shadow-gray-500 text-sm font-bold border-2 text-sm p-1  hover:bg-lightBackground/80 transition-all rounded-xl shadow-md"
+        className="shadow-gray-500 text-sm font-bold border-2  p-1  hover:bg-lightBackground/80 transition-all rounded-xl shadow-md"
       >
         Follow
       </button>

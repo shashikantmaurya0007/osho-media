@@ -15,10 +15,17 @@ const userSlice = createSlice({
       state.userLoading = action.payload;
     },
     setUserData: (state, action) => {
-      const filteredUser = state.userData.filter(
-        (ele) => ele._id !== action.payload._id
-      );
-      state.userData = filteredUser.concat(action.payload);
+      const filteredUser = state.userData.reduce((acc, curr) => {
+        if (curr._id === action.payload._id) {
+          return acc.concat(action.payload);
+        }
+
+        return acc.concat(curr);
+      }, []);
+      // const filteredUser = state.userData.filter(
+      //   (ele) => ele._id !== action.payload._id
+      // );
+      state.userData = filteredUser;
       state.userLoading = false;
       state.userError = null;
     },

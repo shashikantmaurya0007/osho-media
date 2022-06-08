@@ -1,8 +1,7 @@
 import axios from "axios";
-import { loginActions } from "../Auth/loginSlice";
 import { userActions } from "./user-slice";
-
-const followuser_action = (followUsername, encodedToken) => {
+import { loginActions } from "../Auth/loginSlice";
+const unfollowuser_action = (followUsername, encodedToken) => {
   return async (dispatch) => {
     dispatch(userActions.setUserLoading(true));
 
@@ -10,7 +9,7 @@ const followuser_action = (followUsername, encodedToken) => {
       const {
         data: { user, followUser },
       } = await axios.post(
-        `/api/users/follow/${followUsername}`,
+        `/api/users/unfollow/${followUsername}`,
         {},
         {
           headers: {
@@ -26,4 +25,5 @@ const followuser_action = (followUsername, encodedToken) => {
     }
   };
 };
-export { followuser_action };
+
+export { unfollowuser_action };
