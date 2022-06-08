@@ -8,7 +8,7 @@ const SearchResult = ({ searchInput, allUsers }) => {
   let searchedUser = [];
   if (isValidSearch) {
     searchedUser = allUsers.filter((ele) =>
-      ele.username.includes(searchInput.trim())
+      ele.username.toLowerCase().includes(searchInput.toLowerCase().trim())
     );
   }
   const resultRecievedForSearch = Boolean(searchedUser.length);
