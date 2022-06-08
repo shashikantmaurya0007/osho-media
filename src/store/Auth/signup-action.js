@@ -1,7 +1,6 @@
 import axios from "axios";
 import { loginActions } from "./loginSlice";
 import { toast } from "react-toastify";
-
 const userSignup = (userInformation, navigate) => {
   return async (dispatch) => {
     dispatch(loginActions.setLoadingState(true));

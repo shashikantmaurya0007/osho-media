@@ -9,7 +9,7 @@ const initialAppLoadingFetchUser = () => {
         data: { users },
       } = await axios.get(`/api/users`);
 
-      dispatch(userActions.setUserData(users));
+      dispatch(userActions.setInitalUserData(users));
     } catch (error) {
       dispatch(userActions.setUserError());
     }

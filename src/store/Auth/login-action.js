@@ -1,6 +1,7 @@
 import { loginActions } from "./loginSlice";
 import axios from "axios";
 import { toast } from "react-toastify";
+
 const userLogin = (userInformation, navigate) => {
   return async (dispatch) => {
     try {
@@ -19,6 +20,7 @@ const userLogin = (userInformation, navigate) => {
       dispatch(loginActions.setLoadingState(false));
       dispatch(loginActions.setLoginStatus(true));
       toast.success("login Succesfull");
+
       navigate("/");
     } catch (error) {
       dispatch(loginActions.setError("Invalid credential!"));

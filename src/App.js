@@ -6,6 +6,7 @@ import {
   FeedPage,
   BookMarkPage,
   ExplorePage,
+  SearchPage,
 } from "./Pages";
 import Header from "./layoutcomponent/Header";
 import { RequireAuth, Login, SignUp } from "./component/Auth";
@@ -31,6 +32,7 @@ function App() {
             <Route path="/feed" element={<FeedPage />}></Route>
             <Route path="/bookmarks" element={<BookMarkPage />}></Route>
             <Route path="/explore" element={<ExplorePage />}></Route>
+            <Route path="/search" element={<SearchPage />}></Route>
           </Route>
         </Route>
       </Routes>
