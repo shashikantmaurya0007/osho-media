@@ -15,10 +15,16 @@ const userSlice = createSlice({
       state.userLoading = action.payload;
     },
     setUserData: (state, action) => {
+      debugger;
       const filteredUser = state.userData.filter(
         (ele) => ele._id !== action.payload._id
       );
       state.userData = filteredUser.concat(action.payload);
+      state.userLoading = false;
+      state.userError = null;
+    },
+    setInitalUserData: (state, action) => {
+      state.userData = action.payload;
       state.userLoading = false;
       state.userError = null;
     },
