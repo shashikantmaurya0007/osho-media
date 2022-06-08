@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { SuggestionFollowCard } from "../FollowUnfollowCard/SuggestionFollowCard";
+import { EmptyFollowList } from "../GeneralComponent/EmptyFollowList";
 
 const FollowersSuggestion = () => {
   const allUsers = useSelector((state) => state.user.userData);
@@ -15,17 +16,20 @@ const FollowersSuggestion = () => {
         !followingusername.includes(ele.username) && ele.username !== username
     )
     .splice(0, 3);
-  console.log(userNotFollowed, "usernotfollowed");
+  const isFolllowerSuggestionEmpty = !Boolean(userNotFollowed?.length);
   return (
-    <div className="right-aside dark:text-white flex flex-col overflow-y-scroll sticky top-20 h-[14rem] bg-white shadow-lg w-72 mr-[8rem] hidden dark:bg-darkSecondary rounded-lg lg:block">
+    <div className="right-aside dark:text-white flex flex-col sticky top-20 h-[14rem] bg-white shadow-lg w-72 mr-[8rem] hidden dark:bg-darkSecondary rounded-lg lg:block">
       <h5 className="text-center text-sm font-semibold text-gray-400">
         Users you might know
       </h5>
-      <div className="flex flex-col gap-3 p-2 ">
-        {userNotFollowed?.map((ele) => (
-          <SuggestionFollowCard key={ele?._id} user={ele} />
-        ))}
-      </div>
+      {isFolllowerSuggestionEmpty && <EmptyFollowList />}
+      {!isFolllowerSuggestionEmpty && (
+        <div className="flex flex-col gap-3 p-2 ">
+          {userNotFollowed?.map((ele) => (
+            <SuggestionFollowCard key={ele?._id} user={ele} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

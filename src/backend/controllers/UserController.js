@@ -11,7 +11,6 @@ import { formatDate, requiresAuth } from "../utils/authUtils";
  * */
 
 export const getAllUsersHandler = function () {
-  debugger;
   return new Response(200, {}, { users: this.db.users });
 };
 
@@ -205,8 +204,12 @@ export const removePostFromBookmarkHandler = function (schema, request) {
 
 export const followUserHandler = function (schema, request) {
   const user = requiresAuth.call(this, request);
-  const { followUsername } = request.params;
+  console.log(user);
+  const { followUserId: followUsername } = request.params;
+  console.log(followUsername, "followusername");
+
   const followUser = schema.users.findBy({ username: followUsername }).attrs;
+
   try {
     if (!user) {
       return new Response(
