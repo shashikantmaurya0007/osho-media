@@ -12,7 +12,7 @@ const FeedPost = () => {
       {feedPosts?.map((ele) => (
         <PostCard key={ele?._id} postdata={ele} />
       ))}
-    </div>
+  </div>
   );
 };
 

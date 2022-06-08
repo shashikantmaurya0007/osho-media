@@ -26,7 +26,7 @@ const SignUp = () => {
         .required("Required"),
       username: Yup.string()
         .trim()
-        .max(15, "Must be 15 characters or less")
+        .max(15, "Must be 12 characters or less")
         .min(3, "Minimum 3 character")
         .required("Required"),
       lastName: Yup.string()

@@ -53,30 +53,6 @@ export const users = [
     ],
     following: [
       {
-        firstName: "Tanay",
-        lastName: "Pratap",
-        username: "tanaypratap",
-        profileImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654073431/tanay_profile_pic_luvain.jpg`,
-      },
-      {
-        firstName: `Kunal`,
-        lastName: `Shah`,
-        username: `kunalb11`,
-        profileImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654090092/kunal_shah_nvoz1m.jpg`,
-      },
-      {
-        firstName: `Suumit`,
-        lastName: `Shah`,
-        username: `suumitshah`,
-        profileImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654090778/suumit_shah_mn2nhk.jpg`,
-      },
-      {
-        firstName: `Bhavish`,
-        lastName: ` Aggarwal`,
-        username: `bhash`,
-        profileImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654091110/bhavish_aggarwal_pc948b.jpg`,
-      },
-      {
         firstName: `Anupam`,
         lastName: `Mittal`,
         username: `AnupamMittal`,
@@ -140,6 +116,7 @@ export const users = [
   },
   {
     _id: uuid(),
+
     firstName: "Kunal",
     lastName: "Shah",
     username: "kunalb11",
@@ -264,7 +241,7 @@ export const users = [
     updatedAt: formatDate(),
     bio: `Building the future at Ola!
     `,
-    profileImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654090778/suumit_shah_mn2nhk.jpg`,
+    profileImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654091110/bhavish_aggarwal_pc948b.jpg`,
     backgroundImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654100040/bhavish_aggarwal_background_vo5fmw.jpg`,
     website: `https://t.co/2fukVxoHsx`,
     followers: [
