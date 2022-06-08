@@ -14,7 +14,7 @@ const SearchInput = ({ userSearchInputDebounce }) => {
         ref={inputRef}
         type="text"
         max={12}
-        placeholder="search user"
+        placeholder="search by username.."
         className="w-full rounded-md outline-none shadow-2xl dark:bg-darkSecondary dark:text-white"
       />
     </div>

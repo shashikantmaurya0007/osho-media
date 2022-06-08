@@ -15,7 +15,6 @@ const userSlice = createSlice({
       state.userLoading = action.payload;
     },
     setUserData: (state, action) => {
-      debugger;
       const filteredUser = state.userData.filter(
         (ele) => ele._id !== action.payload._id
       );
