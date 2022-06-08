@@ -6,7 +6,6 @@ const followuser_action = (followUsername, encodedToken) => {
   return async (dispatch) => {
     dispatch(userActions.setUserLoading(true));
     try {
-      console.log(followUsername, encodedToken);
       const {
         data: { user, followUser },
       } = await axios.post(
@@ -19,11 +18,9 @@ const followuser_action = (followUsername, encodedToken) => {
         }
       );
 
-      console.log(user, followUser, "user", "folllowUser");
       dispatch(userActions.setUserData(followUser));
       dispatch(loginActions.setUserInformation(user));
     } catch (error) {
-      console.log(error);
       dispatch(userActions.setUserError());
     }
   };
