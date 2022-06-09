@@ -4,16 +4,17 @@ import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import NightsStayIcon from "@mui/icons-material/NightsStay";
 import { useDispatch, useSelector } from "react-redux";
 import { themeAction } from "../store/Theme/theme-slice";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useManageTheme } from "../GeneralCustomHook/useManageTheme";
 import { followCursor } from "tippy.js";
 import { TipsyContent } from "./TipsyContent";
 import Tippy from "@tippyjs/react";
+import { ProfilePic } from "../GeneralComponent/ProfilePic";
 const Header = () => {
   const dispatch = useDispatch();
   useManageTheme();
   const themeSelected = useSelector((state) => state.theme.themeselected);
-
+  const navigate = useNavigate();
   const manageTheme = () => {
     if (themeSelected === "light") {
       localStorage.setItem("theme", "dark");
@@ -23,6 +24,10 @@ const Header = () => {
       localStorage.setItem("theme", "light");
       dispatch(themeAction.setLightTheme());
     }
+  };
+  const { userInformation, isLogin } = useSelector((state) => state.login);
+  const navigateToUerProfile = () => {
+    navigate(`/user/${userInformation.username}`);
   };
 
   return (
@@ -47,19 +52,23 @@ const Header = () => {
             {themeSelected === "light" ? <NightsStayIcon /> : <WbSunnyIcon />}
           </button>
         </Tippy>
-        <Tippy
-          content={<TipsyContent hoverContent={"Profile"} />}
-          followCursor={true}
-          plugins={[followCursor]}
-        >
-          <div class=" flex -space-x-2 overflow-hidden">
-            <img
-              class="inline-block h-12 w-12 rounded-full ring-2 ring-white"
-              src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-              alt=""
-            />
-          </div>
-        </Tippy>
+        {isLogin && (
+          <Tippy
+            content={<TipsyContent hoverContent={"Profile"} />}
+            followCursor={true}
+            plugins={[followCursor]}
+          >
+            <div
+              onClick={() => navigateToUerProfile()}
+              className="cursor-pointer"
+            >
+              <ProfilePic
+                username={userInformation.username}
+                profileImage={userInformation.profileImage}
+              />
+            </div>
+          </Tippy>
+        )}
       </div>
     </nav>
   );

@@ -7,7 +7,7 @@ const EmptyPost = ({ message }) => {
     navigate("/explore");
   };
   return (
-    <div>
+    <div className="mb-[3rem]">
       <img
         onClick={() => navigateToExplore()}
         src="https://res.cloudinary.com/dwqdlzlek/image/upload/v1654456121/dzpw8qqn0m8a88mhwmt9.png"
