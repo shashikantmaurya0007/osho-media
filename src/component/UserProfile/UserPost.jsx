@@ -9,7 +9,7 @@ const UserPost = () => {
     (ele) => ele.username === username
   );
   const noPost = !Boolean(userPost?.length);
-  console.log(noPost);
+
   return (
     <>
       {noPost && <EmptyPost message={`No post by @${username} `} />}

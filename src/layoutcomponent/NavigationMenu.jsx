@@ -23,8 +23,7 @@ const NavigationMenu = () => {
     toast.success("!logout successfull");
   };
   const { username } = useSelector((state) => state.login.userInformation);
-  const active = (isActive) =>
-    isActive ? "bg-lightBackground/80 rounded-xl" : "";
+
   return (
     <aside className="left-aside dark:text-white  bg-white rounded-md shadow-lg w-64 ml-[8rem] p-3 sticky top-20 hidden md:block h-[32rem] dark:bg-darkSecondary  ">
       <ul className=" flex flex-col gap-2">

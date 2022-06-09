@@ -19,7 +19,6 @@ const UserInformation = ({ userData }) => {
     backgroundImage,
   } = userData;
   const userInformation = useSelector((state) => state.login.userInformation);
-  console.log(userInformation);
   const followingUsername = userInformation.following.map(
     (ele) => ele.username
   );
@@ -79,6 +78,7 @@ const UserInformation = ({ userData }) => {
             <a
               className="text-darkHover hover:underline"
               href={website}
+              rel="noreferrer"
               target="_blank"
             >
               {website}
@@ -127,7 +127,7 @@ const UserInformation = ({ userData }) => {
         )}
       </div>
 
-      <div className="w-full child:font-bold dark:text-white flex justify-around child:flex-1 child:font-bold child-hover:transition-all child:border-[1px] child:text-center  child-hover:border-t-8 child-hover:border-t-darkHover child:rounded-t-xl child:p-2 mt-2 child:shadow-2xl">
+      <div className="w-full child:font-bold dark:text-white flex justify-around child:flex-1  child-hover:transition-all child:border-[1px] child:text-center  child-hover:border-t-8 child-hover:border-t-darkHover child:rounded-t-xl child:p-2 mt-2 child:shadow-2xl">
         <NavLink
           className={({ isActive }) => (isActive ? " bg-darkHover" : undefined)}
           to={"followers"}
