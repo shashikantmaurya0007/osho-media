@@ -8,6 +8,7 @@ import ShareTwoToneIcon from "@mui/icons-material/ShareTwoTone";
 import BookmarkTwoToneIcon from "@mui/icons-material/BookmarkTwoTone";
 import BookmarkRemoveIcon from "@mui/icons-material/BookmarkRemove";
 import MoreVertTwoToneIcon from "@mui/icons-material/MoreVertTwoTone";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import { followCursor } from "tippy.js";
 import { TipsyContent } from "../../layoutcomponent/TipsyContent";
 import Tippy from "@tippyjs/react";
@@ -16,6 +17,9 @@ import {
   addToBookmarks,
   alreadyAddedInBookMark,
   removeFromBookmarks,
+  likeThisPost,
+  findIsLiked,
+  dislikeThisPost,
 } from "./postCardUtil";
 import { useDispatch, useSelector } from "react-redux";
 import { useDebounce } from "../../GeneralCustomHook/useDebounce";
@@ -53,6 +57,10 @@ const PostCard = ({ postdata }) => {
   const navigateToUserProfile = () => {
     navigate(`/user/${username}`);
   };
+  const likeThisPostDebounce = useDebounce(likeThisPost, 200);
+  const dislikeThisPostDebounce = useDebounce(dislikeThisPost, 200);
+  const isLiked = findIsLiked(likedBy, username_);
+  console.log(isLiked, "helloLiked");
   return (
     <div className="shadow-inner dark:text-white bg-white dark:bg-darkPrimary rounded-md">
       <div className="flex justify-between items-center px-3 relative">
@@ -97,15 +105,35 @@ const PostCard = ({ postdata }) => {
       {content && <p className="text-base text-justify py-2 px-5">{content}</p>}
       <div className="flex justify-between py-4 px-3   ">
         <div className="flex gap-4">
-          <Tippy
-            content={<TipsyContent hoverContent={"like"} />}
-            followCursor={true}
-            plugins={[followCursor]}
-          >
-            <button>
-              <FavoriteTwoToneIcon /> {likeCount}
-            </button>
-          </Tippy>
+          {isLiked ? (
+            <Tippy
+              content={<TipsyContent hoverContent={"dislike"} />}
+              followCursor={true}
+              plugins={[followCursor]}
+            >
+              <button
+                onClick={() =>
+                  dislikeThisPostDebounce(postdata, dispatch, encodedToken)
+                }
+              >
+                <FavoriteIcon /> {likeCount}
+              </button>
+            </Tippy>
+          ) : (
+            <Tippy
+              content={<TipsyContent hoverContent={"like"} />}
+              followCursor={true}
+              plugins={[followCursor]}
+            >
+              <button
+                onClick={() =>
+                  likeThisPostDebounce(postdata, dispatch, encodedToken)
+                }
+              >
+                <FavoriteTwoToneIcon /> {likeCount}
+              </button>
+            </Tippy>
+          )}
           <Tippy
             content={<TipsyContent hoverContent={"comment"} />}
             followCursor={true}
