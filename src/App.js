@@ -17,6 +17,7 @@ import { useDocumentTitle } from "./GeneralCustomHook/useDocumentTitle";
 import { UserPost } from "./component/UserProfile/UserPost";
 import { UserFollowers } from "./component/UserProfile/UserFollowers";
 import { UserFollowing } from "./component/UserProfile/UserFollowing";
+import { SinglePostPage } from "./Pages/SinglePostPage/SinglePostPage";
 
 function App() {
   useDocumentTitle();
@@ -37,6 +38,7 @@ function App() {
             <Route path="/bookmarks" element={<BookMarkPage />}></Route>
             <Route path="/explore" element={<ExplorePage />}></Route>
             <Route path="/search" element={<SearchPage />}></Route>
+            <Route path="/post/:postId" element={<SinglePostPage />}></Route>
             <Route path="/user/:username" element={<UserProfilePage />}>
               <Route index path="post" element={<UserPost />}></Route>
               <Route index element={<UserPost />}></Route>

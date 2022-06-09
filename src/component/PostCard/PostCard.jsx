@@ -24,8 +24,10 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { useDebounce } from "../../GeneralCustomHook/useDebounce";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 const PostCard = ({ postdata }) => {
   const {
+    _id,
     content,
     postImage,
     username,
@@ -60,7 +62,14 @@ const PostCard = ({ postdata }) => {
   const likeThisPostDebounce = useDebounce(likeThisPost, 200);
   const dislikeThisPostDebounce = useDebounce(dislikeThisPost, 200);
   const isLiked = findIsLiked(likedBy, username_);
-  console.log(isLiked, "helloLiked");
+
+  const navigateToSinglePost = () => {
+    navigate(`/post/${_id}`);
+  };
+  const copyToClipBoard = () => {
+    navigator.clipboard.writeText(window.location.origin + `/post/${_id}`);
+    toast.success(`copied to clipboard!`);
+  };
   return (
     <div className="shadow-inner dark:text-white bg-white dark:bg-darkPrimary rounded-md">
       <div className="flex justify-between items-center px-3 relative">
@@ -139,7 +148,7 @@ const PostCard = ({ postdata }) => {
             followCursor={true}
             plugins={[followCursor]}
           >
-            <button>
+            <button onClick={() => navigateToSinglePost()}>
               <ChatBubbleTwoToneIcon />
             </button>
           </Tippy>
@@ -148,7 +157,7 @@ const PostCard = ({ postdata }) => {
             followCursor={true}
             plugins={[followCursor]}
           >
-            <button>
+            <button onClick={() => copyToClipBoard()}>
               <ShareTwoToneIcon />
             </button>
           </Tippy>

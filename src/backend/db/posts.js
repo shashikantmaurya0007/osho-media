@@ -8,7 +8,7 @@ import { formatDate } from "../utils/authUtils";
 
 export const posts = [
   {
-    _id: uuid(),
+    _id: `63cd12d7-9735-4a00-b146-b310b2a5b1b0`,
     content:
       "The more alive you are, the less repetitive. Only a dead man can be consistent. Living is inconsistency; life is freedom. Freedom cannot  be consistent. ~ Osho",
     postImage:
@@ -61,7 +61,7 @@ export const posts = [
     ],
   },
   {
-    _id: uuid(),
+    _id: `684b7e42-80a1-493e-af38-5a3f0bb388f8`,
     content:
       "If everyone starts giving love instead of talking about love. This very earth can become a paradise. - Osho",
     postImage: null,
@@ -119,7 +119,7 @@ export const posts = [
     ],
   },
   {
-    _id: uuid(),
+    _id: `9bd672d4-8620-4e53-8c1b-a4ebd3eea779`,
     content: `Love is a spiritual phenomenon; lust is physical. Ego is psychological; love is spiritual.~osho`,
     postImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654365419/pexels-%D0%B8%D0%BD%D0%BD%D0%B0-%D0%BC%D0%B8%D0%BA%D0%B8%D1%82%D0%B0%D1%81%D1%8C-4252184_rnc7me.jpg`,
     likes: {
@@ -170,7 +170,7 @@ export const posts = [
     ],
   },
   {
-    _id: uuid(),
+    _id: `6ea8a1f1-8667-4a6e-88e0-81bab8030b4e`,
     content: `Don't do anything – no repetition of mantra, no repetition of  god name – just watch whatever the mind is doing. don't prevent it, don't repress it; be a watcher,the miracle of watching is meditation`,
     postImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654365418/pexels-prince-kumar-2421467_bsdkqv.jpg`,
     likes: {
@@ -221,7 +221,7 @@ export const posts = [
     ],
   },
   {
-    _id: uuid(),
+    _id: `ca3e40ad-a88a-4235-8ab6-0147c3b38932`,
     content: `When love blossoms in its totality, everything simply is. The fear of tomorrow does not arise; hence there is no question of attachment, clinging, marriage, of any kind of contract, bondage. ~ Osho`,
     postImage: null,
     likes: {
@@ -236,7 +236,7 @@ export const posts = [
     comments: [],
   },
   {
-    _id: uuid(),
+    _id: `ca3e40ad-a88a-4235-8ab6-0147c3b38989`,
     content:
       "Be the person you are. Never try to be another, and you will become mature.  - Osho",
     postImage: null,
@@ -284,7 +284,7 @@ export const posts = [
   },
   // tanays post
   {
-    _id: uuid(),
+    _id: `ca3e40ad-a88a-4235-8ab6-0147c3b38800`,
     content:
       "I seriously want to stop tweeting about how awesome Bangalore is but",
     postImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654549239/tanay_s_first_post_bzcwhe.jpg`,
@@ -325,7 +325,7 @@ export const posts = [
     ],
   },
   {
-    _id: uuid(),
+    _id: `ca3e40ad-a88a-4235-8ab6-014dc3b38932`,
     content:
       "My favorite season is here. Yes, you guessed it right—the placement season.",
     postImage: null,
