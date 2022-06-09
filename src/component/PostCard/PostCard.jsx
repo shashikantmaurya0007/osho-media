@@ -19,6 +19,7 @@ import {
 } from "./postCardUtil";
 import { useDispatch, useSelector } from "react-redux";
 import { useDebounce } from "../../GeneralCustomHook/useDebounce";
+import { useNavigate } from "react-router-dom";
 const PostCard = ({ postdata }) => {
   const {
     content,
@@ -36,7 +37,7 @@ const PostCard = ({ postdata }) => {
   } = useSelector((state) => state.login);
   const bookMarkPosts = useSelector((state) => state.bookmark.bookMarkPosts);
   const editDeleteRef = useRef(null);
-
+  const navigate = useNavigate();
   const [showEditDeleteButton, setShowEditDeleteButton] = useState(false);
   const toggleEditDeleteButton = () =>
     setShowEditDeleteButton((prev) => (prev === false ? true : false));
@@ -49,11 +50,16 @@ const PostCard = ({ postdata }) => {
   const addToBookMarkDebounce = useDebounce(addToBookmarks, 300);
   const removeFromBookmarksDebounce = useDebounce(removeFromBookmarks, 300);
   const isBookMarked = alreadyAddedInBookMark(postdata, bookMarkPosts);
-
+  const navigateToUserProfile = () => {
+    navigate(`/user/${username}`);
+  };
   return (
     <div className="shadow-inner dark:text-white bg-white dark:bg-darkPrimary rounded-md">
       <div className="flex justify-between items-center px-3 relative">
-        <div className="flex items-center gap-3 py-3 px-2">
+        <div
+          onClick={() => navigateToUserProfile()}
+          className="flex items-center cursor-pointer gap-3 py-3 px-2"
+        >
           <ProfilePic username={username} profileImage={profileImage} />
           <div>
             <p className="font-bold">@{username}</p>
