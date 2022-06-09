@@ -70,6 +70,7 @@ const PostCard = ({ postdata }) => {
     navigator.clipboard.writeText(window.location.origin + `/post/${_id}`);
     toast.success(`copied to clipboard!`);
   };
+  const copyToClipBoardDebounce = useDebounce(copyToClipBoard, 200);
   return (
     <div className="shadow-inner dark:text-white bg-white dark:bg-darkPrimary rounded-md">
       <div className="flex justify-between items-center px-3 relative">
@@ -157,7 +158,7 @@ const PostCard = ({ postdata }) => {
             followCursor={true}
             plugins={[followCursor]}
           >
-            <button onClick={() => copyToClipBoard()}>
+            <button onClick={() => copyToClipBoardDebounce()}>
               <ShareTwoToneIcon />
             </button>
           </Tippy>
