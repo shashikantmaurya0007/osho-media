@@ -9,6 +9,8 @@ const SinglePostPage = () => {
   const allPosts = useSelector((state) => state.post.allPost);
   const postdata = allPosts.find((post) => post?._id === postId);
 
+  console.log("hello");
+
   return (
     <div>
       {postdata && <PostCard postdata={postdata} />}
