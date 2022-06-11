@@ -151,6 +151,7 @@ const PostCard = ({ postdata }) => {
           >
             <button onClick={() => navigateToSinglePost()}>
               <ChatBubbleTwoToneIcon />
+              {comments?.length}
             </button>
           </Tippy>
           <Tippy

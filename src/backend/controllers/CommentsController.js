@@ -34,6 +34,7 @@ export const getPostCommentsHandler = function (schema, request) {
 
 export const addPostCommentHandler = function (schema, request) {
   const user = requiresAuth.call(this, request);
+
   try {
     if (!user) {
       return new Response(
@@ -47,18 +48,20 @@ export const addPostCommentHandler = function (schema, request) {
       );
     }
     const { postId } = request.params;
+
     const { commentData } = JSON.parse(request.requestBody);
 
     const comment = {
       _id: uuid(),
       text: commentData,
       username: user.username,
+      profileImage: user.profileImage,
       votes: { upvotedBy: [], downvotedBy: [] },
       createdAt: formatDate(),
       updatedAt: formatDate(),
     };
     const post = schema.posts.findBy({ _id: postId }).attrs;
-    post.comments.push(comment);
+    post.comments.unshift(comment);
     this.db.posts.update({ _id: postId }, post);
     return new Response(201, {}, { posts: this.db.posts });
   } catch (error) {
