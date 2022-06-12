@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import loginSlice from "./Auth/loginSlice";
 import bookMarkSlice from "./BookMark/bookmark-slice";
+import filterSlice from "./Filter/Filterslice";
 import likeSlice from "./LikeUnlike/likeSlice";
 import postSlice from "./Post/post-slice";
 import addEditPostSlice from "./PostModal/postmodal-slice";
@@ -15,6 +16,7 @@ const store = configureStore({
     bookmark: bookMarkSlice.reducer,
     user: userSlice.reducer,
     like: likeSlice.reducer,
+    filter: filterSlice.reducer,
   },
 });
 
