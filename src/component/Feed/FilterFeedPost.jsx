@@ -5,6 +5,9 @@ import CalendarMonthTwoToneIcon from "@mui/icons-material/CalendarMonthTwoTone";
 import TrendingUpTwoToneIcon from "@mui/icons-material/TrendingUpTwoTone";
 import { useDispatch } from "react-redux";
 import { filterActions } from "../../store/Filter/Filterslice";
+import { followCursor } from "tippy.js";
+import { TipsyContent } from "../../layoutcomponent/TipsyContent";
+import Tippy from "@tippyjs/react";
 const FilterFeedPost = () => {
   const [showFilter, setShowFilter] = useState(false);
   const toggleFilter = () => setShowFilter((prev) => !prev);
@@ -42,12 +45,18 @@ const FilterFeedPost = () => {
         </div>
       )}
       {!showFilter && (
-        <button
-          onClick={() => toggleFilter()}
-          className="ml-auto dark:bg-darkSecondary dark:shadow-2xl p-2 bg-[#ffffff] rounded-full "
+        <Tippy
+          content={<TipsyContent hoverContent={"filter"} />}
+          followCursor={true}
+          plugins={[followCursor]}
         >
-          <FilterAltIcon />
-        </button>
+          <button
+            onClick={() => toggleFilter()}
+            className="ml-auto dark:bg-darkSecondary dark:shadow-2xl p-2 bg-[#ffffff] rounded-full "
+          >
+            <FilterAltIcon />
+          </button>
+        </Tippy>
       )}
       {showFilter && (
         <button

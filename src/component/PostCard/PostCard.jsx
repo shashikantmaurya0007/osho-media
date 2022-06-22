@@ -110,7 +110,12 @@ const PostCard = ({ postdata }) => {
         )}
       </div>
       {postImage && (
-        <img src={postImage} alt="" className="h-96 w-full object-contain" />
+        <img
+          loading="lazy"
+          src={postImage}
+          alt=""
+          className="h-96 w-full object-contain"
+        />
       )}
       {content && <p className="text-base text-justify py-2 px-5">{content}</p>}
       <div className="flex justify-between py-4 px-3   ">
