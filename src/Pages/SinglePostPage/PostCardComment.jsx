@@ -21,7 +21,7 @@ const PostCardComment = ({ postdata }) => {
           ref={commentRef}
           type="text"
           max={12}
-          placeholder="search by username.."
+          placeholder="add "
           className="w-full rounded-md outline-none shadow-2xl dark:bg-darkSecondary dark:text-white"
         />
         <button
