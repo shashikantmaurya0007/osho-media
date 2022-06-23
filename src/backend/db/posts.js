@@ -41,6 +41,7 @@ export const posts = [
         username: "tanaypratap",
         profileImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654073431/tanay_profile_pic_luvain.jpg`,
         text: "big admirer of osho",
+        edited: false,
         createdAt: new Date("February 12 2022 10:18:35"),
         votes: {
           upvotedBy: [],
@@ -52,6 +53,7 @@ export const posts = [
         username: `kunalb11`,
         profileImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654090092/kunal_shah_nvoz1m.jpg`,
         text: "new generation should read about him",
+        edited: false,
         createdAt: new Date("February 13 2022 14:58:45"),
         votes: {
           upvotedBy: [],
@@ -99,6 +101,7 @@ export const posts = [
         username: "tanaypratap",
         profileImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654073431/tanay_profile_pic_luvain.jpg`,
         text: "absolutely agree",
+        edited: false,
         createdAt: new Date("February 12 2022 10:18:35"),
         votes: {
           upvotedBy: [],
@@ -110,6 +113,7 @@ export const posts = [
         username: `kunalb11`,
         profileImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654090092/kunal_shah_nvoz1m.jpg`,
         text: "sir tusi great ho",
+        edited: false,
         createdAt: new Date("February 13 2022 14:58:45"),
         votes: {
           upvotedBy: [],
@@ -150,6 +154,7 @@ export const posts = [
         username: "tanaypratap",
         profileImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654073431/tanay_profile_pic_luvain.jpg`,
         text: "absolutely agree",
+        edited: false,
         createdAt: new Date("February 12 2022 10:18:35"),
         votes: {
           upvotedBy: [],
@@ -161,6 +166,7 @@ export const posts = [
         username: `kunalb11`,
         profileImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654090092/kunal_shah_nvoz1m.jpg`,
         text: "sir tusi great ho",
+        edited: false,
         createdAt: new Date("February 13 2022 14:58:45"),
         votes: {
           upvotedBy: [],
@@ -201,6 +207,7 @@ export const posts = [
         username: "tanaypratap",
         profileImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654073431/tanay_profile_pic_luvain.jpg`,
         text: "absolutely agree",
+        edited: false,
         createdAt: new Date("February 19 2022 10:18:35"),
         votes: {
           upvotedBy: [],
@@ -212,6 +219,7 @@ export const posts = [
         username: `kunalb11`,
         profileImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654090092/kunal_shah_nvoz1m.jpg`,
         text: "sir tusi great ho",
+        edited: false,
         createdAt: new Date("February 20 2022 14:58:45"),
         votes: {
           upvotedBy: [],
@@ -274,6 +282,7 @@ export const posts = [
         username: `bhash`,
         profileImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654091110/bhavish_aggarwal_pc948b.jpg`,
         text: "thanks for sharing this",
+        edited: false,
         createdAt: new Date("February 12 2021 10:18:35"),
         votes: {
           upvotedBy: [],
@@ -316,6 +325,7 @@ export const posts = [
         username: `bhash`,
         profileImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654091110/bhavish_aggarwal_pc948b.jpg`,
         text: "hahah",
+        edited: false,
         createdAt: new Date("February 12 2022 10:18:35"),
         votes: {
           upvotedBy: [],
@@ -357,6 +367,7 @@ export const posts = [
         username: `bhash`,
         profileImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654091110/bhavish_aggarwal_pc948b.jpg`,
         text: "hahah",
+        edited: false,
         createdAt: new Date("February 12 2022 10:18:35"),
         votes: {
           upvotedBy: [],
@@ -365,4 +376,5 @@ export const posts = [
       },
     ],
   },
+  //
 ];
