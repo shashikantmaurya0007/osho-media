@@ -7,7 +7,7 @@ const FeedPage = () => {
   const allPosts = useSelector((state) => state.post.allPost);
   const { username } = useSelector((state) => state.login.userInformation);
   const feedPosts = allPosts?.filter((post) => post?.username === username);
-  const isFeedPostEmpty = !Boolean(feedPosts.length);
+  const isFeedPostEmpty = !Boolean(feedPosts?.length);
   return (
     <main>
       <OnClickAddPostModal />

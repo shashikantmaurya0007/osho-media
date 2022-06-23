@@ -7,7 +7,7 @@ import { PostCardComment } from "./PostCardComment";
 const SinglePostPage = () => {
   const { postId } = useParams();
   const allPosts = useSelector((state) => state.post.allPost);
-  const postdata = allPosts.find((post) => post?._id === postId);
+  const postdata = allPosts?.find((post) => post?._id === postId);
 
   return (
     <div>

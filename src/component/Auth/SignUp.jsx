@@ -54,7 +54,9 @@ const SignUp = () => {
       onSubmit={formik.handleSubmit}
       className="min-w-fit p-4 m-auto mt-5 dark:text-white shadow-md dark:bg-darkPrimary rounded-lg"
     >
-      <h3 className="text-buttonBgColor mb-3">Sign-up</h3>
+      <h3 className="text-buttonBgColor text-center font-bold  mb-3">
+        Sign-up
+      </h3>
       <div className=" gap-3 ">
         <div className="text-inherit flex-1 flex gap-1 flex-col text-left">
           <label htmlFor="firstName">FirstName</label>

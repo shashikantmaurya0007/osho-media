@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import ClearTwoToneIcon from "@mui/icons-material/ClearTwoTone";
 import CalendarMonthTwoToneIcon from "@mui/icons-material/CalendarMonthTwoTone";
@@ -15,7 +15,11 @@ const FilterFeedPost = () => {
   const updateFilter = (e) => {
     dispatch(filterActions.setFilter(e.target.value));
   };
+
   const resetFilter = () => dispatch(filterActions.resetFilter());
+  useEffect(() => {
+    resetFilter();
+  }, []);
   return (
     <div className="flex justify-between items-center w-full">
       {showFilter && (

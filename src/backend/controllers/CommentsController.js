@@ -54,6 +54,7 @@ export const addPostCommentHandler = function (schema, request) {
     const comment = {
       _id: uuid(),
       text: commentData,
+      edited: false,
       username: user.username,
       profileImage: user.profileImage,
       votes: { upvotedBy: [], downvotedBy: [] },
@@ -109,7 +110,8 @@ export const editPostCommentHandler = function (schema, request) {
     }
     post.comments[commentIndex] = {
       ...post.comments[commentIndex],
-      ...commentData,
+      text: commentData,
+      edited: true,
       updatedAt: formatDate(),
     };
     this.db.posts.update({ _id: postId }, post);
@@ -132,6 +134,7 @@ export const editPostCommentHandler = function (schema, request) {
 
 export const deletePostCommentHandler = function (schema, request) {
   const user = requiresAuth.call(this, request);
+
   try {
     if (!user) {
       return new Response(
@@ -144,6 +147,7 @@ export const deletePostCommentHandler = function (schema, request) {
         }
       );
     }
+
     const { postId, commentId } = request.params;
     const post = schema.posts.findBy({ _id: postId }).attrs;
     const commentIndex = post.comments.findIndex(
