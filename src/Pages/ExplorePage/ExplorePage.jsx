@@ -7,7 +7,7 @@ const ExplorePage = () => {
   const allPosts = useSelector((state) => state.post.allPost);
   const { username } = useSelector((state) => state.login.userInformation);
   const explorePosts = allPosts?.filter((post) => post?.username !== username);
-  const isExplrePostEmpty = !Boolean(explorePosts.length);
+  const isExplrePostEmpty = !Boolean(explorePosts?.length);
   return (
     <main>
       {isExplrePostEmpty && (

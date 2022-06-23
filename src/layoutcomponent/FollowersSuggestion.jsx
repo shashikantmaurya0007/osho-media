@@ -13,7 +13,8 @@ const FollowersSuggestion = () => {
   const userNotFollowed = allUsers
     ?.filter(
       (ele) =>
-        !followingusername.includes(ele.username) && ele.username !== username
+        !followingusername?.includes(ele?.username) &&
+        ele?.username !== username
     )
     .splice(0, 3);
   const isFolllowerSuggestionEmpty = !Boolean(userNotFollowed?.length);

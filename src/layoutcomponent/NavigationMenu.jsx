@@ -33,7 +33,7 @@ const NavigationMenu = () => {
             isActive ? "bg-lightBackground/80 rounded-xl" : undefined
           }
         >
-          <li className="flex gap-3 pl-14 items-center shadow-gray-500 border-2  hover:bg-lightBackground/80 transition-all rounded-xl shadow-md  py-1">
+          <li className="flex  gap-3 pl-14 items-center shadow-gray-500 border-2  hover:bg-lightBackground/80 transition-all rounded-xl shadow-md  py-1">
             <HomeTwoToneIcon /> <h5 className="font-semibold">Feed</h5>
           </li>
         </NavLink>
