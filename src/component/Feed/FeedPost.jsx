@@ -9,21 +9,21 @@ const FeedPost = () => {
     (state) => state.login.userInformation
   );
   const filterSelected = useSelector((state) => state.filter.filterSelected);
-  const followedByuser = following.map((ele) => ele.username);
+  const followedByuser = following?.map((ele) => ele.username);
 
   let feedPosts = allPosts
-    ?.filter(
+    .filter(
       (post) =>
         post?.username === username || followedByuser.includes(post?.username)
     )
     .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
   if (Boolean(filterSelected)) {
     if (filterSelected === "old_first")
-      feedPosts = feedPosts.sort(
+      feedPosts = feedPosts?.sort(
         (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
       );
     if (filterSelected === "trending") {
-      feedPosts = feedPosts.sort(
+      feedPosts = feedPosts?.sort(
         (a, b) => b.likes.likeCount - a.likes.likeCount
       );
     }
