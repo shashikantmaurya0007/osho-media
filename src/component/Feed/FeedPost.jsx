@@ -1,7 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { useInfiniteScroll } from "../../GeneralCustomHook/useInfiniteScroll.js";
 import { PostCard } from "../PostCard/PostCard.jsx";
 import { FilterFeedPost } from "./FilterFeedPost.jsx";
+import { PostLoader } from "./PostLoader.jsx";
 
 const FeedPost = () => {
   const allPosts = useSelector((state) => state.post.allPost);
@@ -29,12 +31,17 @@ const FeedPost = () => {
     }
   }
 
+  const { loading, lastElementReference, pageNumber } =
+    useInfiniteScroll(feedPosts);
+  feedPosts = feedPosts.slice(0, pageNumber * 3);
   return (
     <div className="flex flex-col gap-6 my-6">
       <FilterFeedPost />
       {feedPosts?.map((ele) => (
         <PostCard key={ele?._id} postdata={ele} />
       ))}
+      <div ref={lastElementReference}></div>
+      {loading && <PostLoader />}
     </div>
   );
 };
