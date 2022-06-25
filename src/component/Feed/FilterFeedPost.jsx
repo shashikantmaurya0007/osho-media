@@ -56,7 +56,7 @@ const FilterFeedPost = () => {
         >
           <button
             onClick={() => toggleFilter()}
-            className="ml-auto dark:bg-darkSecondary dark:shadow-2xl p-2 bg-[#ffffff] rounded-full "
+            className="ml-auto dark:text-white dark:bg-darkSecondary dark:shadow-2xl p-2 bg-[#ffffff] rounded-full "
           >
             <FilterAltIcon />
           </button>

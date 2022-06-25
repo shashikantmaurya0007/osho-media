@@ -51,14 +51,7 @@ export const users = [
         profileImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654092599/anupam_mittal_owirks.jpg`,
       },
     ],
-    following: [
-      {
-        firstName: `Anupam`,
-        lastName: `Mittal`,
-        username: `AnupamMittal`,
-        profileImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654092599/anupam_mittal_owirks.jpg`,
-      },
-    ],
+    following: [],
   },
   {
     _id: uuid(),

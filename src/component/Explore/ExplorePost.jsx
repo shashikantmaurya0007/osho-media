@@ -7,7 +7,9 @@ import { PostCard } from "../PostCard/PostCard";
 const ExplorePost = () => {
   const allPosts = useSelector((state) => state.post.allPost);
   const { username } = useSelector((state) => state.login.userInformation);
-  let explorePosts = allPosts?.filter((post) => post?.username !== username);
+  let explorePosts = allPosts
+    ?.filter((post) => post?.username !== username)
+    ?.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
   const { loading, lastElementReference, pageNumber } =
     useInfiniteScroll(explorePosts);
   explorePosts = explorePosts?.slice(0, pageNumber * 3);
