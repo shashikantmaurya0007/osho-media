@@ -458,55 +458,6 @@ export const posts = [
           downvotedBy: [],
         },
       },
-      {
-        _id: `ca3edfffsfd33434-adfsf0966546s93339c3-sfsfsddw-014dc3b38932`,
-        content: `Heard all KK songs again today. Childhood just flashed by. 💔
-    
-        Sometimes your own life’s best memories are thanks to people you don’t even know.`,
-        postImage: null,
-        likes: {
-          likeCount: 3,
-          likedBy: [
-            {
-              firstName: `Bhavish`,
-              lastName: ` Aggarwal`,
-              username: `bhash`,
-              profileImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654091110/bhavish_aggarwal_pc948b.jpg`,
-            },
-            {
-              firstName: "Tanay",
-              lastName: "Pratap",
-              username: "tanaypratap",
-              profileImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654073431/tanay_profile_pic_luvain.jpg`,
-            },
-            {
-              firstName: `Kunal`,
-              lastName: `Shah`,
-              username: `kunalb11`,
-              profileImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654090092/kunal_shah_nvoz1m.jpg`,
-            },
-          ],
-          dislikedBy: [],
-        },
-        username: `bhash`,
-        profileImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654091110/bhavish_aggarwal_pc948b.jpg`,
-        createdAt: new Date("June 2 2022 11:06:56"),
-        updatedAt: formatDate(),
-        comments: [
-          {
-            _id: `63cd12d7-985-5454sfsf9890567b146-b310b2a5b1b0`,
-            username: `kunalb11`,
-            profileImage: `https://res.cloudinary.com/dwqdlzlek/image/upload/v1654090092/kunal_shah_nvoz1m.jpg`,
-            text: "RIP!",
-            edited: false,
-            createdAt: new Date("June 9 2022 14:58:45"),
-            votes: {
-              upvotedBy: [],
-              downvotedBy: [],
-            },
-          },
-        ],
-      },
     ],
   },
   // tanays post
