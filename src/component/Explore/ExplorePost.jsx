@@ -7,9 +7,12 @@ import { PostCard } from "../PostCard/PostCard";
 const ExplorePost = () => {
   const allPosts = useSelector((state) => state.post.allPost);
   const { username } = useSelector((state) => state.login.userInformation);
-  let explorePosts = allPosts?.filter((post) => post?.username !== username);
+  let explorePosts = allPosts
+    ?.filter((post) => post?.username !== username)
+    ?.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
   const { loading, lastElementReference, pageNumber } =
     useInfiniteScroll(explorePosts);
+  console.log(explorePosts?.length);
   explorePosts = explorePosts?.slice(0, pageNumber * 3);
   return (
     <div className="flex flex-col gap-6 my-6">

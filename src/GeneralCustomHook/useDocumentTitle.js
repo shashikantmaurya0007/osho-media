@@ -8,7 +8,8 @@ const useDocumentTitle = () => {
 
   useEffect(() => {
     window.document.title = `oshoshare|${title_}`;
-  },   [title_]);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [title_]);
 };
 
 export { useDocumentTitle };
