@@ -12,7 +12,6 @@ const ExplorePost = () => {
     ?.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
   const { loading, lastElementReference, pageNumber } =
     useInfiniteScroll(explorePosts);
-  console.log(explorePosts?.length);
   explorePosts = explorePosts?.slice(0, pageNumber * 3);
   return (
     <div className="flex flex-col gap-6 my-6">
