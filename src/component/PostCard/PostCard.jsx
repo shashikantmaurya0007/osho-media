@@ -114,10 +114,18 @@ const PostCard = ({ postdata }) => {
           loading="lazy"
           src={postImage}
           alt=""
-          className="h-96 w-full object-contain"
+          onClick={() => navigateToSinglePost()}
+          className="h-96 cursor-pointer w-full object-contain"
         />
       )}
-      {content && <p className="text-base text-justify py-2 px-5">{content}</p>}
+      {content && (
+        <p
+          onClick={() => navigateToSinglePost()}
+          className="text-base cursor-pointer  text-justify py-2 px-5"
+        >
+          {content}
+        </p>
+      )}
       <div className="flex justify-between py-4 px-3   ">
         <div className="flex gap-4">
           {isLiked ? (

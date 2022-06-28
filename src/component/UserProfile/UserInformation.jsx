@@ -6,6 +6,7 @@ import { followuser_action } from "../../store/User/followuser_action";
 import { unfollowuser_action } from "../../store/User/unfollowuser_action";
 import { loginActions } from "../../store/Auth/loginSlice";
 import { toast } from "react-toastify";
+import { editUserModalOpenActions } from "../../store/EditUserModal/editusermodal-slice";
 const UserInformation = ({ userData }) => {
   const {
     firstName,
@@ -44,7 +45,9 @@ const UserInformation = ({ userData }) => {
     dispatch(loginActions.logOutUser());
     toast.success("!logout successfull");
   };
-
+  const openUserProfileEditModal = () => {
+    dispatch(editUserModalOpenActions.setEditUserProfileOpen());
+  };
   return (
     <div className="bg-white dark:bg-darkSecondary rounded-t-[1rem]">
       <div className="relative rounded-[1rem] ">
@@ -76,12 +79,12 @@ const UserInformation = ({ userData }) => {
           <span className="font-bold "> website:-</span>
           {websiteExist ? (
             <a
-              className="text-darkHover hover:underline"
+              className="text-darkHover  text-ellipsis hover:underline"
               href={website}
               rel="noreferrer"
               target="_blank"
             >
-              {website}
+              click here to visit website
             </a>
           ) : (
             <p>Not exist</p>
@@ -99,11 +102,17 @@ const UserInformation = ({ userData }) => {
           </Link>
         </div>
         {userInformation.username === username ? (
-          <div className="absolute w-[6rem] right-1 my-3">
+          <div className="absolute flex gap-3 w-[6rem] right-16  my-3">
             <button onClick={() => logOutUser()}>
-              <li className="flex  justify-center absolute bottom-2 w-[6rem] py-1 hover:bg-red-400 rounded-md bg-red-500 font-semibold  text-white ">
+              <li className="flex  justify-center  bottom-2 w-[6rem] py-1 hover:bg-red-400 rounded-md bg-red-500 font-semibold  text-white ">
                 Logout
               </li>
+            </button>
+            <button
+              onClick={() => openUserProfileEditModal()}
+              className="shadow-gray-500 w-[5rem] text-sm font-bold border-2  p-1  hover:bg-lightBackground/80 transition-all rounded-xl shadow-md"
+            >
+              Edit
             </button>
           </div>
         ) : (
