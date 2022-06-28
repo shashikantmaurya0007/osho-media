@@ -2,7 +2,6 @@ import { loginActions } from "./loginSlice";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { postActions } from "../Post/post-slice";
-import { ProfilePic } from "../../GeneralComponent/ProfilePic";
 
 const updateUserProfile = (userData, encodedToken, allPost, username) => {
   return async (dispatch) => {

@@ -10,9 +10,7 @@ import { editUserModalOpenActions } from "../store/EditUserModal/editusermodal-s
 
 import { updateUserProfile } from "../store/Auth/edituser-action";
 import { useOnClickOutside } from "../GeneralCustomHook/useOnClickOutside";
-import { DotLoader, RotateLoader } from "react-spinners";
-import Loader from "react-spinners/BarLoader";
-import { blue } from "@mui/material/colors";
+import { RotateLoader } from "react-spinners";
 
 const EditUserInformationModal = () => {
   const {
